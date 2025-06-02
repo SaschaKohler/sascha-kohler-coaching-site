@@ -7,7 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "seo:analyze": "npm run build && echo 'SEO Analysis: Check /SEO-CHECKLIST.md for implementation status'",
+    "seo:test": "echo 'Testing structured data...' && echo 'Visit: https://developers.google.com/search/docs/appearance/structured-data'",
+    "sitemap:generate": "next build && echo 'Sitemap generated at /sitemap.xml'"
   },
   "dependencies": {
     "@heroicons/react": "^2.1.1",

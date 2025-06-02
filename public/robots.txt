@@ -1,0 +1,38 @@
+User-agent: *
+Allow: /
+
+# Hauptseiten
+Allow: /
+Allow: /online-beratung
+Allow: /klare-methode-online
+Allow: /impressum
+Allow: /datenschutz
+Allow: /agb
+
+# Sitemaps
+Sitemap: https://sascha-kohler.at/sitemap.xml
+Sitemap: https://sascha-kohler.at/sitemap-0.xml
+
+# Crawl-delay für bessere Server-Performance
+Crawl-delay: 1
+
+# Spezielle Anweisungen für verschiedene Bots
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot  
+Allow: /
+Crawl-delay: 1
+
+# Blockiere Admin-Bereiche (falls vorhanden)
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /node_modules/
+
+# Erlaube wichtige Ressourcen
+Allow: /images/
+Allow: /favicon.ico
+Allow: /*.css
+Allow: /*.js
