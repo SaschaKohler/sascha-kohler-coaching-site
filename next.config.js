@@ -1,11 +1,14 @@
+import createMDX from '@next/mdx'
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  // swcMinify: true,
   output: "standalone",
   experimental: {
     optimizeCss: true,
+    mdxRs: true,
   },
+  pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
   images: {
     domains: ["images.unsplash.com"],
     formats: ["image/webp", "image/avif"],
@@ -49,4 +52,8 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+const withMDX = createMDX({
+  // Add markdown plugins here, as desired
+})
+
+export default withMDX(nextConfig)

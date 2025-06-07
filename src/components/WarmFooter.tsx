@@ -4,14 +4,49 @@ export default function WarmFooter() {
   return (
     <footer className="bg-deep-brown text-cream py-12">
       <div className="container mx-auto px-6">
-        <div className="flex flex-col md:flex-row justify-between items-center mb-6">
-          <p className="text-lg">&copy; 2025 Sascha Kohler - NLP-Trainer & Mentaltrainer</p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link href="/impressum" className="hover:text-klare-k transition-colors">Impressum</Link>
-            <Link href="/datenschutz" className="hover:text-klare-k transition-colors">Datenschutz</Link>
-            <Link href="/agb" className="hover:text-klare-k transition-colors">AGB</Link>
-            <Link href="https://klare-methode.app" className="hover:text-klare-k transition-colors">KLARE-Methode App</Link>
+        <div className="grid md:grid-cols-4 gap-8 mb-8">
+          <div>
+            <h3 className="font-bold mb-3">Navigation</h3>
+            <ul className="space-y-2 text-sm">
+              <li><Link href="/" className="hover:text-klare-k transition-colors">Start</Link></li>
+              <li><Link href="/ueber-mich" className="hover:text-klare-k transition-colors">Über mich</Link></li>
+              <li><Link href="/blog" className="hover:text-klare-k transition-colors">Blog</Link></li>
+              <li><Link href="/kontakt" className="hover:text-klare-k transition-colors">Kontakt</Link></li>
+            </ul>
           </div>
+          
+          <div>
+            <h3 className="font-bold mb-3">Services</h3>
+            <ul className="space-y-2 text-sm">
+              <li><Link href="/#services" className="hover:text-klare-k transition-colors">Einzelcoaching</Link></li>
+              <li><Link href="/#methode" className="hover:text-klare-k transition-colors">KLARE-Methode</Link></li>
+              <li><Link href="/online-beratung" className="hover:text-klare-k transition-colors">Online-Beratung</Link></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 className="font-bold mb-3">Rechtliches</h3>
+            <ul className="space-y-2 text-sm">
+              <li><Link href="/impressum" className="hover:text-klare-k transition-colors">Impressum</Link></li>
+              <li><Link href="/datenschutz" className="hover:text-klare-k transition-colors">Datenschutz</Link></li>
+              <li><Link href="/agb" className="hover:text-klare-k transition-colors">AGB</Link></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 className="font-bold mb-3">KLARE-Methode</h3>
+            <ul className="space-y-2 text-sm">
+              <li><Link href="https://klare-methode.app" className="hover:text-klare-k transition-colors">KLARE App</Link></li>
+              <li><Link href="/blog/die-klare-methode-vorstellung" className="hover:text-klare-k transition-colors">Mehr erfahren</Link></li>
+            </ul>
+          </div>
+        </div>
+        
+        <div className="flex flex-col md:flex-row justify-between items-center pt-6 border-t border-warm-brown">
+          <p className="text-sm">&copy; 2025 Sascha Kohler - Lebens- und Sozialberater</p>
+          <p className="text-xs text-light-beige mt-2 md:mt-0">
+            Wolfsberg, Kärnten | Online-Beratung österreichweit
+          </p>
         </div>
         <p className="text-sm text-light-beige text-center italic">
           "Der Klient schafft sich den Raum, um sich selbst wiederzuentdecken"

@@ -146,7 +146,7 @@ export default function KlareMethod() {
                     {/* Step Number Circle */}
                     <div className="flex items-start space-x-4">
                       <div
-                        className={`relative w-16 h-16 bg-gradient-to-br ${step.color} rounded-2xl flex items-center justify-center font-bold text-white text-xl flex-shrink-0`}
+                        className={`relative w-16 h-16 bg-gradient-to-br ${step.color} rounded-2xl flex items-center justify-center font-bold text-white text-xl flex-shrink-0 font-sans`}
                       >
                         {step.letter}
                         {activeStep === step.id && (
