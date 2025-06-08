@@ -2,34 +2,34 @@ import { CheckIcon } from 'lucide-react';
 
 const advantages = [
   {
-    title: "Keine Anfahrt nötig",
-    description: "Sparen Sie Zeit und Fahrtkosten. Coaching bequem von zuhause aus.",
-    benefit: "Mehr Zeit für sich selbst"
+    title: "Entspanntere Mentaltraining-Sessions",
+    description: "In vertrauter Umgebung können Sie sich besser auf mentale Techniken einlassen.",
+    benefit: "Tiefere Entspannung & bessere Konzentration"
   },
   {
-    title: "Flexible Terminzeiten", 
-    description: "Auch abends und am Wochenende verfügbar. Passt sich Ihrem Rhythmus an.",
-    benefit: "Work-Life-Balance optimiert"
+    title: "Sofortige Anwendung zuhause", 
+    description: "Gelernte Atemtechniken und Mentaltechniken direkt in Ihrem Alltag anwenden.",
+    benefit: "Direkter Transfer in den Alltag"
   },
   {
-    title: "Vertraute Umgebung",
-    description: "In den eigenen vier Wänden fühlen sich viele entspannter und offener.",
-    benefit: "Natürlichere Gespräche"
+    title: "Flexible Zeiten für Vielbeschäftigte",
+    description: "Auch abends und am Wochenende. Perfekt für Führungskräfte und Unternehmer.",
+    benefit: "Passt in jeden Terminkalender"
   },
   {
-    title: "Gleiche Qualität",
-    description: "Professionelle Beratung mit derselben Methodik wie bei Präsenzterminen.",
-    benefit: "Bewährte Wirksamkeit"
+    title: "Keine Anfahrt = mehr Zeit",
+    description: "Gesparte Fahrtzeit können Sie für weitere Mentaltechniken nutzen.",
+    benefit: "Effizientere Zeitnutzung"
   },
   {
-    title: "Diskrete Teilnahme",
-    description: "Niemand sieht Sie in die Praxis gehen. Absolute Anonymität gewährleistet.",
-    benefit: "Ungestörte Privatsphäre"
+    title: "Diskrete Mentaltrainer-Beratung",
+    description: "Niemand erfährt von Ihrem Mentaltraining. Absolute Privatsphäre gewährleistet.",
+    benefit: "Ungestörte Entwicklung"
   },
   {
-    title: "Sofortige Verfügbarkeit",
-    description: "Kurzfristige Termine möglich. Bei akuten Anliegen schnelle Hilfe.",
-    benefit: "Zeitnahe Unterstützung"
+    title: "Bewährte Mentaltrainer-Qualität",
+    description: "Gleiche KLARE-Methode und Expertise wie bei Präsenzterminen.",
+    benefit: "Keine Qualitätseinbußen"
   }
 ];
 
@@ -39,11 +39,11 @@ export default function OnlineAdvantagesSection() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-serif text-warm-brown mb-6">
-            Warum Online-Beratung?
+            Warum Online-Mentaltraining?
           </h2>
           <p className="text-xl text-warm-brown/80 max-w-3xl mx-auto">
-            Entdecken Sie die Vorteile digitaler Lebensberatung - 
-            ohne Kompromisse bei der professionellen Qualität
+            Entdecken Sie die Vorteile digitalen Mentaltrainings - 
+            oft sogar effektiver als Präsenztermine
           </p>
         </div>
 
@@ -51,7 +51,7 @@ export default function OnlineAdvantagesSection() {
           {advantages.map((advantage, index) => (
             <div key={index} className="bg-white rounded-xl p-6 shadow-sm border border-warm-brown/10 hover:shadow-md transition-shadow">
               <div className="flex items-start mb-4">
-                <div className="w-8 h-8 bg-klare-green rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                <div className="w-8 h-8 bg-klare-r rounded-full flex items-center justify-center mr-3 flex-shrink-0">
                   <CheckIcon className="w-5 h-5 text-white" />
                 </div>
                 <h3 className="font-semibold text-warm-brown text-lg">{advantage.title}</h3>
@@ -59,7 +59,7 @@ export default function OnlineAdvantagesSection() {
               <p className="text-warm-brown/70 mb-3 leading-relaxed">
                 {advantage.description}
               </p>
-              <p className="text-klare-blue font-medium text-sm">
+              <p className="text-klare-r font-medium text-sm">
                 ✓ {advantage.benefit}
               </p>
             </div>
@@ -67,21 +67,21 @@ export default function OnlineAdvantagesSection() {
         </div>
 
         <div className="mt-16 text-center">
-          <div className="bg-gradient-to-r from-klare-blue/10 to-klare-purple/10 rounded-xl p-8 max-w-4xl mx-auto">
+          <div className="bg-gradient-to-r from-klare-r/10 to-klare-l/10 rounded-xl p-8 max-w-4xl mx-auto">
             <h3 className="text-2xl font-semibold text-warm-brown mb-4">
-              Wissenschaftlich bestätigt
+              Mentaltrainer-Erfahrung bestätigt
             </h3>
             <p className="text-warm-brown/80 leading-relaxed mb-6">
-              Studien zeigen: Online-Coaching erreicht bei den meisten Beratungsanliegen 
-              die gleiche Wirksamkeit wie Präsenztermine. Der Schlüssel liegt in der 
-              professionellen Durchführung und der vertrauensvollen Beziehung zwischen 
-              Berater und Klient.
+              "In über 20 Jahren Praxis erlebe ich: Online-Mentaltraining ist oft sogar 
+              effektiver. Meine Klienten sind entspannter, können die Techniken sofort 
+              in ihrer gewohnten Umgebung anwenden und sind offener für neue Denkmuster."
             </p>
+            <p className="text-klare-r font-medium italic mb-6">— Sascha Kohler, Mentaltrainer</p>
             <a 
               href="#booking" 
-              className="inline-block bg-klare-blue text-white px-6 py-3 rounded-lg font-medium hover:bg-klare-blue/90 transition-colors"
+              className="inline-block bg-klare-r text-white px-6 py-3 rounded-lg font-medium hover:bg-klare-r/90 transition-colors"
             >
-              Jetzt kostenfrei testen
+              Kostenloses 30-Min Gespräch
             </a>
           </div>
         </div>

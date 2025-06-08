@@ -5,10 +5,10 @@ export default function ApproachSection() {
     {
       letter: "K",
       title: "Klarheit",
-      subtitle: "Was ist wirklich wichtig?",
+      subtitle: "Mentale Ausrichtung finden",
       description: "Erkenne, was wirklich wichtig ist",
       process:
-        "Gemeinsam schaffen wir Raum für die grundlegenden Fragen: Was bewegt Sie wirklich? Welche Werte leiten Sie? Durch strukturierte Reflexion finden Sie zu Ihrer inneren Klarheit über Ihre wahren Bedürfnisse und Ziele.",
+        "Mit bewährten Mentaltechniken schaffen wir zunächst mentale Klarheit. Durch gezielte Visualisierungsübungen und Fokustechniken erkennen Sie, was Sie wirklich bewegt und welche Ziele für Sie authentisch sind. Diese mentale Landkarte wird zur Grundlage aller weiteren Schritte.",
       color: "bg-klare-k",
       borderColor: "border-klare-k",
       textColor: "text-klare-k",
@@ -16,10 +16,10 @@ export default function ApproachSection() {
     {
       letter: "L",
       title: "Lebendigkeit",
-      subtitle: "Ihre natürliche Energie",
+      subtitle: "Energie & Flow aktivieren",
       description: "Spüre deine natürliche Energie",
       process:
-        "Entdecken Sie Ihre natürlichen Energiequellen wieder. Wo fühlen Sie sich lebendig? Was bringt Sie zum Strahlen? Wir erkunden gemeinsam, was Ihnen Kraft gibt und wie Sie diese Lebendigkeit in Ihren Alltag integrieren können.",
+        "Hier aktivieren wir Ihre natürlichen Energiequellen durch Atemtechniken und Flow-Training. Sie lernen, wann Sie in Ihrem Element sind und wie Sie diesen Zustand bewusst herbeiführen können. Mentaltraining macht diese Lebendigkeit jederzeit abrufbar.",
       color: "bg-klare-l",
       borderColor: "border-klare-l",
       textColor: "text-klare-l",
@@ -27,10 +27,10 @@ export default function ApproachSection() {
     {
       letter: "A",
       title: "Ausrichtung",
-      subtitle: "Ihr authentischer Weg",
+      subtitle: "Mentale Programmierung",
       description: "Finde deinen authentischen Weg",
       process:
-        "Basierend auf Ihrer Klarheit und Lebendigkeit entwickeln Sie eine authentische Ausrichtung. Wie möchten Sie leben? Welcher Weg entspricht wirklich Ihrem Wesen? Hier entsteht Ihr persönlicher Kompass für Entscheidungen.",
+        "Basierend auf Ihrer Klarheit programmieren wir Ihr Unterbewusstsein neu. Mit Affirmationen, Anker-Techniken und mentalen Strategien entwickeln Sie eine unerschütterliche innere Ausrichtung. Ihr mentaler Kompass zeigt ab sofort in die richtige Richtung.",
       color: "bg-klare-a",
       borderColor: "border-klare-a",
       textColor: "text-klare-a",
@@ -38,10 +38,10 @@ export default function ApproachSection() {
     {
       letter: "R",
       title: "Realisierung",
-      subtitle: "Erkenntnisse umsetzen",
+      subtitle: "Mental stark umsetzen",
       description: "Setze deine Erkenntnisse um",
       process:
-        "Jetzt geht es ans Umsetzen. Welche konkreten Schritte führen Sie zu Ihrem authentischen Leben? Wir entwickeln gemeinsam realistische Strategien und Pläne, die zu Ihnen und Ihrer Lebenssituation passen.",
+        "Jetzt setzen Sie um - mental stark und fokussiert. Mit Peak-Performance-Techniken und mentalen Durchhaltestrategien verwandeln Sie Pläne in Realität. Sie lernen, wie Spitzensportler zu denken und Hindernisse als Sprungbretter zu nutzen.",
       color: "bg-klare-r",
       borderColor: "border-klare-r",
       textColor: "text-klare-r",
@@ -49,10 +49,10 @@ export default function ApproachSection() {
     {
       letter: "E",
       title: "Entfaltung",
-      subtitle: "Volles Potenzial leben",
+      subtitle: "Kontinuierliche mentale Stärke",
       description: "Lebe dein volles Potenzial",
       process:
-        "Der kontinuierliche Prozess der Selbstentfaltung beginnt. Wie können Sie dauerhaft in Ihrer Authentizität bleiben? Wir schaffen Strukturen für nachhaltiges Wachstum und die Integration neuer Erkenntnisse in Ihr Leben.",
+        "Der Weg zu dauerhafter mentaler Stärke. Sie entwickeln Routinen und Gewohnheiten, die Ihre neue Denkweise festigen. Durch kontinuierliches mentales Training bleiben Sie auch unter Stress in Ihrer Kraft und wachsen stetig über sich hinaus.",
       color: "bg-klare-e",
       borderColor: "border-klare-e",
       textColor: "text-klare-e",
@@ -63,16 +63,16 @@ export default function ApproachSection() {
     <section className="py-24 bg-cream" id="methode">
       <div className="container mx-auto px-6">
         <div className="text-center max-w-4xl mx-auto mb-16">
-          <p className="text-warm-brown text-lg mb-4">Mein Ansatz</p>
+          <p className="text-warm-brown text-lg mb-4">Mentaltraining nach der KLARE-Methode</p>
           <h2 className="font-serif text-4xl lg:text-5xl font-light text-dark-brown mb-8">
-            Raum für Selbstentdeckung schaffen
+            Raum für mentale Selbstentdeckung
           </h2>
           <p className="text-xl text-warm-brown leading-relaxed">
-            Als NLP-Trainer und Mentaltrainer verstehe ich mich nicht als
-            Ratgeber, sondern als Raumschaffer. Durch philosophischen Dialog und
-            bewährte Methoden schaffe ich einen geschützten Denkraum, in dem Sie
-            Ihre eigenen Fähigkeiten wieder bewusst wahrnehmen und integrieren
-            können.
+            Als Mentaltrainer verstehe ich mich als Raumschaffer für Ihre 
+            mentale Entwicklung. Durch bewährte Mentaltechniken und die 
+            KLARE-Methode schaffe ich einen geschützten Rahmen, in dem Sie 
+            selbst entdecken können, wie Sie Ihre mentale Stärke aktivieren. 
+            Die Kraft liegt bereits in Ihnen.
           </p>
         </div>
 
@@ -104,7 +104,7 @@ export default function ApproachSection() {
         {/* Detailed KLARE Process */}
         <div className="max-w-5xl mx-auto">
           <h3 className="font-serif text-3xl font-light text-dark-brown text-center mb-12">
-            So funktioniert die KLARE-Methode
+            KLARE-Methode: Mentale Transformation Schritt für Schritt
           </h3>
 
           <div className="space-y-12">

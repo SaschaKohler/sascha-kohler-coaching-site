@@ -16,33 +16,42 @@ export default function WarmHero() {
           {/* Hero Text - Takes more space */}
           <div className="lg:col-span-2 animate-fade-in">
             <p className="text-warm-brown text-lg mb-4 font-normal">
-              NLP-Trainer & Mentaltrainer
+              <span className="font-semibold text-klare-r">Mentaltrainer</span> • NLP-Master • 20+ Jahre Menschenerfahrung
             </p>
             <h1 className="font-serif text-5xl lg:text-6xl font-light text-dark-brown mb-6 leading-tight">
-              Entdecken Sie sich selbst wieder
+              Entdecken Sie Ihre mentale Stärke wieder
             </h1>
             <p className="text-xl text-warm-brown leading-relaxed mb-8 max-w-3xl">
-              Manchmal braucht es nur den richtigen Raum, um zu sich selbst zu
-              finden. Hier schaffen Sie sich diesen Raum – einen geschützten Ort
-              des Dialogs, wo Sie Ihre eigenen Antworten entdecken. Mit der{" "}
+              Als Mentaltrainer schaffe ich den Raum, in dem Sie selbst erkennen können, 
+              was Sie wirklich brauchen. Durch bewährte Mentaltechniken und die{" "}
               <span className="bg-gradient-klare bg-clip-text text-transparent font-medium">
                 KLARE-Methode
               </span>{" "}
-              gehen Sie Ihren persönlichen Weg zur Kongruenz.
+              entdecken Sie in sich die Antworten, die Sie bereits haben. 
+              Ihre mentale Stärke wartet darauf, von Ihnen aktiviert zu werden.
             </p>
 
             {/* CTA Button */}
-            <Link
-              href="#kontakt"
-              className="inline-block px-8 py-4 bg-deep-brown text-warm-white rounded-lg font-medium transition-all duration-300 hover:bg-transparent hover:text-deep-brown border-2 border-deep-brown hover:shadow-lg transform hover:-translate-y-1"
-            >
-              Erstgespräch vereinbaren
-            </Link>
+            <div className="flex flex-col sm:flex-row gap-4 items-start">
+              <Link
+                href="#kontakt"
+                className="inline-block px-8 py-4 bg-deep-brown text-warm-white rounded-lg font-medium transition-all duration-300 hover:bg-transparent hover:text-deep-brown border-2 border-deep-brown hover:shadow-lg transform hover:-translate-y-1"
+              >
+                Kostenloses 30-Min Klarheitsgespräch
+              </Link>
+              <Link
+                href="/online-beratung"
+                className="inline-block px-6 py-3 bg-klare-r text-warm-white rounded-lg font-medium transition-all duration-300 hover:bg-klare-r/90 border-2 border-klare-r"
+              >
+                Online-Termin ⭐
+              </Link>
+            </div>
 
-            {/* Timeline Note */}
-            <p className="text-sm text-warm-brown mt-4 italic">
-              LSB-Diplom ab September 2025
-            </p>
+            {/* Mentaltraining Highlights */}
+            <div className="mt-6 p-4 bg-warm-white/70 backdrop-blur-sm rounded-lg border border-klare-r/20">
+              <p className="text-sm text-warm-brown font-medium mb-2">✅ Sofortige Mentaltechniken für den Alltag</p>
+              <p className="text-sm text-warm-brown">✅ Bewährte Methoden aus 20+ Jahren Praxis</p>
+            </div>
           </div>
 
           {/* Hero Image - Smaller and more subtle */}
@@ -78,11 +87,11 @@ export default function WarmHero() {
             </div>
 
             {/* Space visualization circle - smaller */}
-            <div className="absolute -bottom-4 -right-4 w-24 h-24 border-2 border-klare-k/20 rounded-full bg-warm-white/70 backdrop-blur-sm flex items-center justify-center animate-pulse-gentle">
+            <div className="absolute -bottom-4 -right-4 w-24 h-24 border-2 border-klare-r/20 rounded-full bg-warm-white/70 backdrop-blur-sm flex items-center justify-center animate-pulse-gentle">
               <span className="text-xs text-deep-brown text-center font-serif leading-tight">
-                Raum für
+                Mental
                 <br />
-                Entdeckung
+                Training
               </span>
             </div>
           </div>

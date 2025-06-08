@@ -17,6 +17,7 @@ export default function WarmNavigation() {
             <li><Link href="#home" className="text-warm-brown hover:text-klare-k transition-colors">Start</Link></li>
             <li><Link href="/ueber-mich" className="text-warm-brown hover:text-klare-k transition-colors">Über mich</Link></li>
             <li><Link href="#methode" className="text-warm-brown hover:text-klare-k transition-colors">Methode</Link></li>
+            <li><Link href="/online-beratung" className="text-klare-r hover:text-klare-r/80 transition-colors font-medium">Online-Beratung ⭐</Link></li>
             <li><Link href="#qualifikationen" className="text-warm-brown hover:text-klare-k transition-colors">Qualifikationen</Link></li>
             <li><Link href="/blog" className="text-warm-brown hover:text-klare-k transition-colors">Blog</Link></li>
             <li><Link href="/kontakt" className="text-warm-brown hover:text-klare-k transition-colors">Kontakt</Link></li>
@@ -35,6 +36,7 @@ export default function WarmNavigation() {
               <li><Link href="#home" className="block py-2 text-warm-brown hover:text-klare-k transition-colors" onClick={() => setIsOpen(false)}>Start</Link></li>
               <li><Link href="/ueber-mich" className="block py-2 text-warm-brown hover:text-klare-k transition-colors" onClick={() => setIsOpen(false)}>Über mich</Link></li>
               <li><Link href="#methode" className="block py-2 text-warm-brown hover:text-klare-k transition-colors" onClick={() => setIsOpen(false)}>Methode</Link></li>
+              <li><Link href="/online-beratung" className="block py-2 text-klare-r hover:text-klare-r/80 transition-colors font-medium" onClick={() => setIsOpen(false)}>Online-Beratung ⭐</Link></li>
               <li><Link href="#qualifikationen" className="block py-2 text-warm-brown hover:text-klare-k transition-colors" onClick={() => setIsOpen(false)}>Qualifikationen</Link></li>
               <li><Link href="/blog" className="block py-2 text-warm-brown hover:text-klare-k transition-colors" onClick={() => setIsOpen(false)}>Blog</Link></li>
               <li><Link href="/kontakt" className="block py-2 text-warm-brown hover:text-klare-k transition-colors" onClick={() => setIsOpen(false)}>Kontakt</Link></li>

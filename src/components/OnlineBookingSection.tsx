@@ -8,10 +8,10 @@ export default function OnlineBookingSection() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-serif text-warm-brown mb-6">
-            Online-Termin in 3 einfachen Schritten
+            Online-Mentaltraining in 3 einfachen Schritten
           </h2>
           <p className="text-xl text-warm-brown/80 max-w-2xl mx-auto">
-            Starten Sie noch heute Ihre persönliche Entwicklung - bequem von zuhause aus
+            Starten Sie noch heute Ihr mentales Training - bequem von zuhause aus
           </p>
         </div>
 
