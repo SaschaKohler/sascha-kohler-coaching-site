@@ -1,9 +1,38 @@
 'use client';
 import { useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function WarmNavigation() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+
+  const isActive = (path: string) => {
+    if (path === '/' && pathname === '/') return true;
+    if (path !== '/' && pathname.startsWith(path)) return true;
+    return false;
+  };
+
+  const NavLink = ({ href, children, onClick, highlight = false }: { 
+    href: string; 
+    children: React.ReactNode; 
+    onClick?: () => void;
+    highlight?: boolean;
+  }) => (
+    <Link 
+      href={href} 
+      className={`${
+        isActive(href) 
+          ? 'text-klare-k font-medium' 
+          : highlight 
+            ? 'text-klare-r hover:text-klare-r/80 font-medium' 
+            : 'text-warm-brown hover:text-klare-k'
+      } transition-colors`}
+      onClick={onClick}
+    >
+      {children}
+    </Link>
+  );
 
   return (
     <header className="fixed top-0 w-full z-50 bg-warm-white/95 backdrop-blur-md border-b border-light-beige">
@@ -14,13 +43,13 @@ export default function WarmNavigation() {
           </Link>
           
           <ul className="hidden md:flex space-x-8">
-            <li><Link href="#home" className="text-warm-brown hover:text-klare-k transition-colors">Start</Link></li>
-            <li><Link href="/ueber-mich" className="text-warm-brown hover:text-klare-k transition-colors">Über mich</Link></li>
-            <li><Link href="#methode" className="text-warm-brown hover:text-klare-k transition-colors">Methode</Link></li>
-            <li><Link href="/online-beratung" className="text-klare-r hover:text-klare-r/80 transition-colors font-medium">Online-Beratung ⭐</Link></li>
-            <li><Link href="#qualifikationen" className="text-warm-brown hover:text-klare-k transition-colors">Qualifikationen</Link></li>
-            <li><Link href="/blog" className="text-warm-brown hover:text-klare-k transition-colors">Blog</Link></li>
-            <li><Link href="/kontakt" className="text-warm-brown hover:text-klare-k transition-colors">Kontakt</Link></li>
+            <li><NavLink href="/">Start</NavLink></li>
+            <li><NavLink href="/ueber-mich">Über mich</NavLink></li>
+            <li><NavLink href="/#methode">Methode</NavLink></li>
+            <li><NavLink href="/online-beratung" highlight>Online-Beratung ⭐</NavLink></li>
+            <li><NavLink href="/#qualifikationen">Qualifikationen</NavLink></li>
+            <li><NavLink href="/blog">Blog</NavLink></li>
+            <li><NavLink href="/kontakt">Kontakt</NavLink></li>
           </ul>
 
           <button className="md:hidden text-warm-brown" onClick={() => setIsOpen(!isOpen)}>
@@ -33,13 +62,13 @@ export default function WarmNavigation() {
         {isOpen && (
           <div className="md:hidden pb-4">
             <ul className="space-y-2">
-              <li><Link href="#home" className="block py-2 text-warm-brown hover:text-klare-k transition-colors" onClick={() => setIsOpen(false)}>Start</Link></li>
-              <li><Link href="/ueber-mich" className="block py-2 text-warm-brown hover:text-klare-k transition-colors" onClick={() => setIsOpen(false)}>Über mich</Link></li>
-              <li><Link href="#methode" className="block py-2 text-warm-brown hover:text-klare-k transition-colors" onClick={() => setIsOpen(false)}>Methode</Link></li>
-              <li><Link href="/online-beratung" className="block py-2 text-klare-r hover:text-klare-r/80 transition-colors font-medium" onClick={() => setIsOpen(false)}>Online-Beratung ⭐</Link></li>
-              <li><Link href="#qualifikationen" className="block py-2 text-warm-brown hover:text-klare-k transition-colors" onClick={() => setIsOpen(false)}>Qualifikationen</Link></li>
-              <li><Link href="/blog" className="block py-2 text-warm-brown hover:text-klare-k transition-colors" onClick={() => setIsOpen(false)}>Blog</Link></li>
-              <li><Link href="/kontakt" className="block py-2 text-warm-brown hover:text-klare-k transition-colors" onClick={() => setIsOpen(false)}>Kontakt</Link></li>
+              <li><NavLink href="/" onClick={() => setIsOpen(false)}>Start</NavLink></li>
+              <li><NavLink href="/ueber-mich" onClick={() => setIsOpen(false)}>Über mich</NavLink></li>
+              <li><NavLink href="/#methode" onClick={() => setIsOpen(false)}>Methode</NavLink></li>
+              <li><NavLink href="/online-beratung" onClick={() => setIsOpen(false)} highlight>Online-Beratung ⭐</NavLink></li>
+              <li><NavLink href="/#qualifikationen" onClick={() => setIsOpen(false)}>Qualifikationen</NavLink></li>
+              <li><NavLink href="/blog" onClick={() => setIsOpen(false)}>Blog</NavLink></li>
+              <li><NavLink href="/kontakt" onClick={() => setIsOpen(false)}>Kontakt</NavLink></li>
             </ul>
           </div>
         )}

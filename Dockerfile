@@ -1,40 +1,58 @@
-# Dockerfile
+# Multi-stage Dockerfile für Next.js
 FROM node:18-alpine AS base
 
-# Install dependencies only when needed
+# Dependencies installieren
 FROM base AS deps
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
-# Install dependencies based on the preferred package manager
+# Package files kopieren
+COPY package.json package-lock.json* ./
+RUN npm ci --only=production
+
+# Dev dependencies für Build
+FROM base AS dev-deps
+RUN apk add --no-cache libc6-compat
+WORKDIR /app
 COPY package.json package-lock.json* ./
 RUN npm ci
 
-# Rebuild the source code only when needed
+# Builder Stage
 FROM base AS builder
 WORKDIR /app
-COPY --from=deps /app/node_modules ./node_modules
+
+# Alle Dateien kopieren
 COPY . .
 
-# Build the application
+# Dependencies vom dev-deps stage kopieren
+COPY --from=dev-deps /app/node_modules ./node_modules
+
+# Build arguments
+ARG NEXT_PUBLIC_CONTACT_FORM_ENDPOINT
+ENV NEXT_PUBLIC_CONTACT_FORM_ENDPOINT=$NEXT_PUBLIC_CONTACT_FORM_ENDPOINT
+
+# Next.js build
 RUN npm run build
 
-# Production image, copy all the files and run next
+# Production image
 FROM base AS runner
 WORKDIR /app
 
 ENV NODE_ENV production
+ENV NEXT_TELEMETRY_DISABLED 1
 
+# User erstellen
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
-COPY --from=builder /app/public ./public
+# Public assets kopieren - WICHTIG: Behalte die Original-Struktur
+COPY --from=builder --chown=nextjs:nodejs /app/public ./public
 
-# Set the correct permission for prerender cache
+# .next Ordner erstellen
 RUN mkdir .next
 RUN chown nextjs:nodejs .next
 
-# Automatically leverage output traces to reduce image size
+# Standalone build und static files kopieren
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
@@ -45,4 +63,5 @@ EXPOSE 3000
 ENV PORT 3000
 ENV HOSTNAME "0.0.0.0"
 
+# Start command
 CMD ["node", "server.js"]

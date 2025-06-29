@@ -78,10 +78,7 @@ export default function OnlineBeratungPage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-      />
+
       <main className="min-h-screen bg-warm-white">
         <WarmNavigation />
         <OnlineServiceHero />

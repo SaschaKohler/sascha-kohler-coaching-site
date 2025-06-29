@@ -68,10 +68,12 @@ export default function OnlineServiceTeaser() {
           {/* CTA */}
           <div className="text-center">
             <Link
-              href="/online-beratung"
+              href="https://calendar.app.google/6Tp1TGMBSR8cm5tX6"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-block px-8 py-4 bg-klare-r text-warm-white rounded-lg font-medium text-lg transition-all duration-300 hover:bg-klare-r/90 hover:shadow-lg transform hover:-translate-y-1 mr-4"
             >
-              Online-Termin buchen
+              Kostenloses Erstgespräch buchen
             </Link>
             <Link
               href="mailto:office@sascha-kohler.at"

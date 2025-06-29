@@ -1,15 +1,66 @@
-# Docker
+# Dependencies
 node_modules
 npm-debug.log
+yarn-error.log
+
+# Next.js
+.next
+out
+
+# Production
+build
+dist
+
+# Misc
+.DS_Store
+*.pem
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Local env files
+.env*.local
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Vercel
+.vercel
+
+# Typescript
+*.tsbuildinfo
+
+# Git
 .git
 .gitignore
-README.md
+
+# Docker
+Dockerfile
+docker-compose.yml
 .dockerignore
-.env
-.env.local
-.env.production
-.env.staging
+
+# IDE
+.idea
+.vscode
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Tests
 coverage
 .nyc_output
-.next
-.vercel
+
+# Docs
+README.md
+docs
+
+# CI
+.github
+.gitlab-ci.yml
+.travis.yml

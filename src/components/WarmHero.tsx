@@ -40,10 +40,12 @@ export default function WarmHero() {
                 Kostenloses 30-Min Klarheitsgespräch
               </Link>
               <Link
-                href="/online-beratung"
+                href="https://calendar.app.google/6Tp1TGMBSR8cm5tX6"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-block px-6 py-3 bg-klare-r text-warm-white rounded-lg font-medium transition-all duration-300 hover:bg-klare-r/90 border-2 border-klare-r"
               >
-                Online-Termin ⭐
+                Kostenloses Erstgespräch ⭐
               </Link>
             </div>
 

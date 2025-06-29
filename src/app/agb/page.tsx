@@ -1,3 +1,6 @@
+import WarmNavigation from '@/components/WarmNavigation';
+import WarmFooter from '@/components/WarmFooter';
+
 export const metadata = {
   title: 'AGB | Sascha Kohler - NLP-Trainer & Mentaltrainer',
   description: 'Allgemeine Geschäftsbedingungen für Coaching und Beratungsleistungen von Sascha Kohler.',
@@ -5,7 +8,9 @@ export const metadata = {
 
 export default function AGBPage() {
   return (
-    <div className="min-h-screen bg-warm-white pt-24 pb-16">
+    <>
+      <WarmNavigation />
+      <div className="min-h-screen bg-warm-white pt-24 pb-16">
       {/* Header */}
       <header className="py-16 bg-hero-gradient relative overflow-hidden">
         <div className="absolute top-1/4 right-0 w-96 h-96 bg-klare-a-soft rounded-full blur-3xl opacity-30"></div>
@@ -287,6 +292,8 @@ export default function AGBPage() {
           </a>
         </div>
       </main>
-    </div>
+      </div>
+      <WarmFooter />
+    </>
   );
 }

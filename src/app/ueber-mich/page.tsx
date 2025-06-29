@@ -1,6 +1,9 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import WarmNavigation from '@/components/WarmNavigation';
+import WarmFooter from '@/components/WarmFooter';
+import PersonalGallery from '@/components/PersonalGallery';
 
 export const metadata: Metadata = {
   title: "Über mich | Sascha Kohler - Mein Weg zur Lebensberatung",
@@ -14,17 +17,20 @@ export const metadata: Metadata = {
 
 export default function UeberMichPage() {
   return (
-    <main className="pt-28 pb-16">
+    <>
+      <WarmNavigation />
+      <main className="pt-28 pb-16 bg-warm-white">
       <div className="container mx-auto px-4 md:px-6 max-w-4xl">
         {/* Header mit Bild */}
         <div className="text-center mb-12">
-          <div className="w-48 h-48 mx-auto mb-8 rounded-full overflow-hidden bg-gradient-to-br from-slate-800 to-amber-600 p-1">
-            <div className="w-full h-full rounded-full overflow-hidden bg-white flex items-center justify-center">
-              {/* Placeholder für Ihr Foto */}
-              <div className="w-44 h-44 bg-slate-100 rounded-full flex items-center justify-center">
-                <span className="text-4xl font-bold text-slate-600">SK</span>
-              </div>
-            </div>
+          <div className="w-48 h-48 mx-auto mb-8 rounded-full overflow-hidden">
+            <Image
+              src="/images/sascha-profile.png"
+              alt="Sascha Kohler - Mensch und Mentaltrainer"
+              width={200}
+              height={200}
+              className="w-full h-full rounded-full"
+            />
           </div>
           
           <h1 className="text-4xl md:text-5xl font-display font-bold mb-4 text-slate-800">
@@ -258,6 +264,11 @@ export default function UeberMichPage() {
           </div>
         </div>
       </div>
-    </main>
+      
+      <PersonalGallery />
+      
+      </main>
+      <WarmFooter />
+    </>
   );
 }

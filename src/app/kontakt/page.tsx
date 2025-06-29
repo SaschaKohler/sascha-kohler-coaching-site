@@ -1,19 +1,24 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import WarmNavigation from '@/components/WarmNavigation';
+import WarmFooter from '@/components/WarmFooter';
+import ContactForm from '@/components/ContactForm';
 
 export const metadata: Metadata = {
   title: "Kontakt | Sascha Kohler - Lebens- und Sozialberater",
-  description: "Nehmen Sie Kontakt auf für ein unverbindliches Beratungsgespräch. Online-Beratung und persönliche Termine in Wolfsberg, Kärnten.",
+  description: "Nehmen Sie Kontakt auf für ein unverbindliches Beratungsgespräch. Online-Beratung und persönliche Termine in Schwertberg, Oberösterreich.",
   openGraph: {
     title: "Kontakt | Sascha Kohler - Lebens- und Sozialberater",
-    description: "Nehmen Sie Kontakt auf für ein unverbindliches Beratungsgespräch. Online-Beratung und persönliche Termine in Wolfsberg, Kärnten.",
+    description: "Nehmen Sie Kontakt auf für ein unverbindliches Beratungsgespräch. Online-Beratung und persönliche Termine in Schwertberg, Oberösterreich.",
     type: "website",
   },
 };
 
 export default function KontaktPage() {
   return (
-    <main className="pt-28 pb-16">
+    <>
+      <WarmNavigation />
+      <main className="pt-28 pb-16 bg-warm-white">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-display font-bold mb-4 text-slate-800">
@@ -33,117 +38,7 @@ export default function KontaktPage() {
               Nachricht senden
             </h2>
             
-            <form className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-4">
-                <div>
-                  <label htmlFor="vorname" className="block text-sm font-medium text-slate-700 mb-2">
-                    Vorname *
-                  </label>
-                  <input
-                    type="text"
-                    id="vorname"
-                    name="vorname"
-                    required
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent"
-                    placeholder="Ihr Vorname"
-                  />
-                </div>                <div>
-                  <label htmlFor="nachname" className="block text-sm font-medium text-slate-700 mb-2">
-                    Nachname *
-                  </label>
-                  <input
-                    type="text"
-                    id="nachname"
-                    name="nachname"
-                    required
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent"
-                    placeholder="Ihr Nachname"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-2">
-                  E-Mail-Adresse *
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent"
-                  placeholder="ihre.email@beispiel.at"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="telefon" className="block text-sm font-medium text-slate-700 mb-2">
-                  Telefon (optional)
-                </label>
-                <input
-                  type="tel"
-                  id="telefon"
-                  name="telefon"
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent"
-                  placeholder="+43 123 456 7890"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="betreff" className="block text-sm font-medium text-slate-700 mb-2">
-                  Betreff
-                </label>
-                <select
-                  id="betreff"
-                  name="betreff"
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent"
-                >
-                  <option value="">Bitte wählen...</option>
-                  <option value="erstgespraech">Unverbindliches Erstgespräch</option>
-                  <option value="einzelcoaching">Einzelcoaching</option>
-                  <option value="klare-methode">KLARE-Methode</option>
-                  <option value="online-beratung">Online-Beratung</option>
-                  <option value="sonstiges">Sonstiges</option>
-                </select>
-              </div>
-
-              <div>
-                <label htmlFor="nachricht" className="block text-sm font-medium text-slate-700 mb-2">
-                  Ihre Nachricht *
-                </label>
-                <textarea
-                  id="nachricht"
-                  name="nachricht"
-                  rows={6}
-                  required
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent resize-none"
-                  placeholder="Erzählen Sie mir gerne, was Sie bewegt und wie ich Sie unterstützen kann..."
-                ></textarea>
-              </div>
-              <div className="flex items-start">
-                <input
-                  type="checkbox"
-                  id="datenschutz"
-                  name="datenschutz"
-                  required
-                  className="mt-1 h-4 w-4 text-amber-600 focus:ring-amber-500 border-slate-300 rounded"
-                />
-                <label htmlFor="datenschutz" className="ml-2 text-sm text-slate-600">
-                  Ich stimme der Verarbeitung meiner Daten gemäß der{" "}
-                  <Link href="/datenschutz" className="text-amber-600 hover:text-amber-700 underline">
-                    Datenschutzerklärung
-                  </Link>{" "}
-                  zu. *
-                </label>
-              </div>
-
-              <button
-                type="submit"
-                className="w-full bg-amber-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-amber-700 transition-colors focus:ring-2 focus:ring-amber-500 focus:ring-offset-2"
-              >
-                Nachricht senden
-              </button>
-            </form>
+            <ContactForm />
           </div>
 
           {/* Kontaktinformationen */}
@@ -162,7 +57,7 @@ export default function KontaktPage() {
                   </div>
                   <div>
                     <p className="font-medium text-slate-800">E-Mail</p>
-                    <p className="text-slate-600">kontakt@sascha-kohler.at</p>
+                    <p className="text-slate-600">office@sascha-kohler.at</p>
                   </div>
                 </div>
 
@@ -174,7 +69,7 @@ export default function KontaktPage() {
                   </div>
                   <div>
                     <p className="font-medium text-slate-800">Telefon</p>
-                    <p className="text-slate-600">+43 123 456 7890</p>
+                    <p className="text-slate-600">+43 (0) 650 90 30 372</p>
                   </div>
                 </div>
 
@@ -187,7 +82,7 @@ export default function KontaktPage() {
                   </div>
                   <div>
                     <p className="font-medium text-slate-800">Standort</p>
-                    <p className="text-slate-600">Wolfsberg, Kärnten<br />Österreich</p>
+                    <p className="text-slate-600">Furth 6<br />4311 Schwertberg - Oberösterreich<br />Österreich</p>
                   </div>
                 </div>
               </div>
@@ -197,7 +92,7 @@ export default function KontaktPage() {
                 Terminvereinbarung
               </h3>
               <p className="text-slate-600 mb-6">
-                Ich biete sowohl persönliche Gespräche in Wolfsberg als auch 
+                Ich biete sowohl persönliche Gespräche in Schwertberg (Oberösterreich) als auch 
                 Online-Beratung via Video-Call an. Das Erstgespräch (30 Min.) 
                 ist für Sie kostenfrei und unverbindlich.
               </p>
@@ -295,6 +190,8 @@ export default function KontaktPage() {
           </div>
         </div>
       </div>
-    </main>
+      </main>
+      <WarmFooter />
+    </>
   );
 }

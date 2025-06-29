@@ -69,24 +69,38 @@ export default function OnlineBookingSection() {
               <h4 className="font-semibold text-warm-brown mb-3">Erstberatung</h4>
               <p className="text-2xl font-bold text-klare-orange mb-2">Kostenfrei</p>
               <p className="text-sm text-warm-brown/70 mb-4">30 Minuten Kennenlernen</p>
-              <button className="w-full bg-klare-orange text-white py-3 rounded-lg font-medium hover:bg-klare-orange/90 transition-colors">
-                Ersttermin buchen
-              </button>
+              <a
+                href="https://calendar.app.google/6Tp1TGMBSR8cm5tX6"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full bg-klare-orange text-white py-3 rounded-lg font-medium hover:bg-klare-orange/90 transition-colors inline-block text-center"
+              >
+                Kostenloses Erstgespräch buchen
+              </a>
             </div>
             
             <div className="bg-warm-beige/30 p-6 rounded-lg">
               <h4 className="font-semibold text-warm-brown mb-3">Einzelsitzung</h4>
               <p className="text-2xl font-bold text-klare-blue mb-2">€80</p>
               <p className="text-sm text-warm-brown/70 mb-4">60 Minuten intensive Beratung</p>
-              <button className="w-full bg-klare-blue text-white py-3 rounded-lg font-medium hover:bg-klare-blue/90 transition-colors">
-                Termin vereinbaren
-              </button>
+              <a
+                href="mailto:office@sascha-kohler.at?subject=Einzelsitzung%20anfragen&body=Hallo%20Sascha,%0A%0Aich%20möchte%20gerne%20nach%20unserem%20Erstgespräch%20eine%20Einzelsitzung%20vereinbaren.%0A%0AViele%20Grüße"
+                className="w-full bg-klare-blue text-white py-3 rounded-lg font-medium hover:bg-klare-blue/90 transition-colors inline-block text-center"
+              >
+                Nach Erstgespräch buchbar
+              </a>
             </div>
           </div>
 
           <div className="text-center">
+            <div className="bg-klare-r/10 p-4 rounded-lg mb-4">
+              <p className="text-sm text-klare-r font-medium">
+                ℹ️ <strong>Wichtiger Hinweis:</strong> Einzelsitzungen sind nur nach einem kostenlosen Erstgespräch möglich. 
+                So können wir gemeinsam herausfinden, ob meine Arbeitsweise zu Ihren Bedürfnissen passt.
+              </p>
+            </div>
             <p className="text-sm text-warm-brown/70 mb-4">
-              📞 Oder rufen Sie direkt an: <a href="tel:+4366488123456" className="text-klare-blue hover:underline">+43 664 88 123 456</a>
+              📞 Oder rufen Sie direkt an: <a href="tel:+436509030372" className="text-klare-blue hover:underline">+43 (0)650 9030372</a>
             </p>
             <p className="text-xs text-warm-brown/60">
               Alle Preise verstehen sich inkl. USt. Absage bis 24h vorher kostenfrei möglich.

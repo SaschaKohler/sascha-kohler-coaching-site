@@ -1,3 +1,6 @@
+import WarmNavigation from '@/components/WarmNavigation';
+import WarmFooter from '@/components/WarmFooter';
+
 export const metadata = {
   title: 'Datenschutzerklärung | Sascha Kohler - NLP-Trainer & Mentaltrainer',
   description: 'Informationen zum Datenschutz gemäß DSGVO für die Website von Sascha Kohler.',
@@ -5,7 +8,9 @@ export const metadata = {
 
 export default function DatenschutzPage() {
   return (
-    <div className="min-h-screen bg-warm-white pt-24 pb-16">
+    <>
+      <WarmNavigation />
+      <div className="min-h-screen bg-warm-white pt-24 pb-16">
       {/* Header */}
       <header className="py-16 bg-hero-gradient relative overflow-hidden">
         <div className="absolute top-1/4 right-0 w-96 h-96 bg-klare-l-soft rounded-full blur-3xl opacity-30"></div>
@@ -45,11 +50,11 @@ export default function DatenschutzPage() {
               <p className="font-medium text-dark-brown mb-2">Sascha Kohler</p>
               <p>NLP-Trainer & Mentaltrainer</p>
               <p>Furth 6</p>
-              <p>4311 Schwertberg</p>
+              <p>4311 Schwertberg - Oberösterreich</p>
               <p>Österreich</p>
               <p className="mt-3">
                 <strong>Kontakt:</strong><br />
-                Telefon: +43 650 90 30 372<br />
+                Telefon: +43 (0) 650 90 30 372<br />
                 E-Mail: office@sascha-kohler.at
               </p>
             </div>
@@ -161,6 +166,8 @@ export default function DatenschutzPage() {
           </a>
         </div>
       </main>
-    </div>
+      </div>
+      <WarmFooter />
+    </>
   );
 }

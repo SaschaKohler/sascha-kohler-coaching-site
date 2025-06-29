@@ -43,9 +43,9 @@ export default function WarmFooter() {
         </div>
         
         <div className="flex flex-col md:flex-row justify-between items-center pt-6 border-t border-warm-brown">
-          <p className="text-sm">&copy; 2025 Sascha Kohler - Lebens- und Sozialberater</p>
+                    <p className="text-sm">&copy; 2025 Sascha Kohler - Mensch und Mentaltrainer</p>
           <p className="text-xs text-light-beige mt-2 md:mt-0">
-            Wolfsberg, Kärnten | Online-Beratung österreichweit
+            Schwertberg, Oberösterreich | Online-Beratung österreichweit
           </p>
         </div>
         <p className="text-sm text-light-beige text-center italic">

@@ -1,3 +1,6 @@
+import WarmNavigation from '@/components/WarmNavigation';
+import WarmFooter from '@/components/WarmFooter';
+
 export const metadata = {
   title: 'Impressum | Sascha Kohler - NLP-Trainer & Mentaltrainer',
   description: 'Rechtliche Informationen und Kontaktdaten von Sascha Kohler - NLP-Trainer, Mentaltrainer und angehender Lebens- und Sozialberater.',
@@ -5,7 +8,9 @@ export const metadata = {
 
 export default function ImpressumPage() {
   return (
-    <div className="min-h-screen bg-warm-white pt-24 pb-16">
+    <>
+      <WarmNavigation />
+      <div className="min-h-screen bg-warm-white pt-24 pb-16">
       {/* Header */}
       <header className="py-16 bg-hero-gradient relative overflow-hidden">
         <div className="absolute top-1/4 right-0 w-96 h-96 bg-klare-k-soft rounded-full blur-3xl opacity-30"></div>
@@ -29,7 +34,7 @@ export default function ImpressumPage() {
             <div className="space-y-3 text-warm-brown">
               <p className="font-medium text-dark-brown text-lg">Sascha Kohler</p>
               <p>Furth 6</p>
-              <p>4311 Schwertberg</p>
+              <p>4311 Schwertberg - Oberösterreich</p>
               <p>Österreich</p>
             </div>
           </section>
@@ -39,7 +44,7 @@ export default function ImpressumPage() {
               Kontakt
             </h2>
             <div className="space-y-2 text-warm-brown">
-              <p>Telefon: +43 650 90 30 372</p>
+              <p>Telefon: +43 (0) 650 90 30 372</p>
               <p>E-Mail: office@sascha-kohler.at</p>
               <p>Website: www.sascha-kohler.at</p>
             </div>
@@ -166,6 +171,8 @@ export default function ImpressumPage() {
           </a>
         </div>
       </main>
-    </div>
+      </div>
+      <WarmFooter />
+    </>
   );
 }

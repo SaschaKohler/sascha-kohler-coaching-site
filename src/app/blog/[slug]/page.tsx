@@ -6,11 +6,12 @@ import WarmNavigation from '@/components/WarmNavigation';
 import WarmFooter from '@/components/WarmFooter';
 
 interface BlogPostPageProps {
-  params: { slug: string; };
+  params: Promise<{ slug: string; }>;
 }
 
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
-  const post = await getBlogPostBySlug(params.slug);
+  const { slug } = await params;
+  const post = await getBlogPostBySlug(slug);
   if (!post) return { title: "Blog-Post nicht gefunden" };
   return {
     title: `${post.title} | Sascha Kohler Mentaltraining Blog`,
@@ -31,7 +32,8 @@ export async function generateStaticParams() {
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
-  const post = await getBlogPostBySlug(params.slug);
+  const { slug } = await params;
+  const post = await getBlogPostBySlug(slug);
   if (!post) notFound();
   return (
     <>
@@ -111,10 +113,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                   Kontakt aufnehmen
                 </Link>
                 <Link
-                  href="/online-beratung"
+                  href="https://calendar.app.google/6Tp1TGMBSR8cm5tX6"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-block bg-transparent text-klare-r px-6 py-3 rounded-lg font-medium border-2 border-klare-r hover:bg-klare-r hover:text-warm-white transition-colors"
                 >
-                  Online-Termin buchen
+                  Kostenloses Erstgespräch
                 </Link>
               </div>
             </div>
