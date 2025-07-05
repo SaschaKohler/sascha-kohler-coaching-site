@@ -1,11 +1,46 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
+// Hilfsfunktion zum Prüfen, ob ein Datum innerhalb der letzten 30 Tage liegt
+const isWithinLast30Days = (dateString: string): boolean => {
+  const articleDate = new Date(dateString);
+  const thirtyDaysAgo = new Date();
+  thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+  return articleDate > thirtyDaysAgo;
+};
+
+// Neuesten Blog-Artikel finden
+const LATEST_BLOG_POST = {
+  date: '2025-07-05', // Heutiges Datum
+  slug: 'die-macht-der-selbstwirksamkeit'
+};
+
 export default function WarmNavigation() {
   const [isOpen, setIsOpen] = useState(false);
+  const [showNewBadge, setShowNewBadge] = useState(false);
   const pathname = usePathname();
+
+  useEffect(() => {
+    // Prüfen, ob der Artikel in den letzten 30 Tagen veröffentlicht wurde
+    const isNewArticle = isWithinLast30Days(LATEST_BLOG_POST.date);
+    
+    // Prüfen, ob der Benutzer den Artikel bereits gelesen hat
+    const hasReadArticle = typeof window !== 'undefined' 
+      ? localStorage.getItem(`read_${LATEST_BLOG_POST.slug}`) === 'true'
+      : false;
+    
+    setShowNewBadge(isNewArticle && !hasReadArticle);
+    
+    // Wenn der Benutzer den Blog besucht, als gelesen markieren
+    if (pathname === '/blog' || pathname.includes('/blog/')) {
+      if (typeof window !== 'undefined') {
+        localStorage.setItem(`read_${LATEST_BLOG_POST.slug}`, 'true');
+      }
+      setShowNewBadge(false);
+    }
+  }, [pathname]);
 
   const isActive = (path: string) => {
     if (path === '/' && pathname === '/') return true;
@@ -48,7 +83,14 @@ export default function WarmNavigation() {
             <li><NavLink href="/#methode">Methode</NavLink></li>
             <li><NavLink href="/online-beratung" highlight>Online-Beratung ⭐</NavLink></li>
             <li><NavLink href="/#qualifikationen">Qualifikationen</NavLink></li>
-            <li><NavLink href="/blog">Blog</NavLink></li>
+            <li className="relative">
+              <NavLink href="/blog">Blog</NavLink>
+              {showNewBadge && (
+                <span className="absolute -top-2 -right-6 bg-klare-r text-white text-xs font-bold px-2 py-0.5 rounded-full animate-pulse">
+                  Neu
+                </span>
+              )}
+            </li>
             <li><NavLink href="/kontakt">Kontakt</NavLink></li>
           </ul>
 
@@ -67,7 +109,14 @@ export default function WarmNavigation() {
               <li><NavLink href="/#methode" onClick={() => setIsOpen(false)}>Methode</NavLink></li>
               <li><NavLink href="/online-beratung" onClick={() => setIsOpen(false)} highlight>Online-Beratung ⭐</NavLink></li>
               <li><NavLink href="/#qualifikationen" onClick={() => setIsOpen(false)}>Qualifikationen</NavLink></li>
-              <li><NavLink href="/blog" onClick={() => setIsOpen(false)}>Blog</NavLink></li>
+              <li className="flex items-center">
+                <NavLink href="/blog" onClick={() => setIsOpen(false)}>Blog</NavLink>
+                {showNewBadge && (
+                  <span className="ml-2 bg-klare-r text-white text-xs font-bold px-2 py-0.5 rounded-full animate-pulse">
+                    Neu
+                  </span>
+                )}
+              </li>
               <li><NavLink href="/kontakt" onClick={() => setIsOpen(false)}>Kontakt</NavLink></li>
             </ul>
           </div>

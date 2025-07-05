@@ -47,6 +47,15 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://sascha-kohler.at',
   },
+  icons: {
+    icon: '/favicon/favicon.svg',
+    shortcut: '/favicon/favicon.svg',
+    apple: '/favicon/favicon.svg',
+    other: {
+      rel: 'mask-icon',
+      url: '/favicon/favicon.svg',
+    },
+  },
   openGraph: {
     type: 'website',
     locale: 'de_AT',

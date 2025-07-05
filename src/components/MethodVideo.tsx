@@ -21,14 +21,25 @@ const MethodVideo = () => {
           <div className="max-w-md mx-auto">
             <div className="rounded-xl overflow-hidden shadow-2xl border-4 border-white bg-slate-800">
               <video
-                className="w-full h-auto"
+                className="w-full h-auto max-h-[500px] object-cover"
                 src="/images/Kongruenz 23.mp4"
                 controls
                 loop
                 muted
                 playsInline
+                preload="metadata"
+                webkit-playsinline="true"
+                x5-playsinline="true"
+                x5-video-player-type="h5"
+                x5-video-player-fullscreen="true"
+                x5-video-orientation="portraint"
                 poster="/images/sascha-kohler-coaching-session.jpg"
+                style={{
+                  WebkitTapHighlightColor: 'transparent',
+                  outline: 'none',
+                }}
               >
+                <source src="/images/Kongruenz 23.mp4" type="video/mp4" />
                 Ihr Browser unterstützt das Video-Tag nicht.
               </video>
             </div>
