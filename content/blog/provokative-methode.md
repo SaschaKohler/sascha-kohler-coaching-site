@@ -7,7 +7,6 @@ tags: ["Provokative Methode", "Frank Farrelly", "Beratung", "Selbsterkenntnis", 
 author: "Sascha Kohler"
 ---
 
-# Die Provokative Methode nach Frank Farrelly: Wenn Widerspruch zur Klarheit führt
 
 Stellen Sie sich vor, Sie kommen zu mir in die Beratung und klagen über Ihre berufliche Unzufriedenheit. Anstatt Ihnen zuzustimmen und mitfühlend zu nicken, sage ich: *"Ach so, Sie meinen also, Sie sind zu gut für Ihren Job? Klar, alle anderen sind das Problem, nur Sie nicht."*
 

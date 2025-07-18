@@ -60,7 +60,7 @@ export default function WarmHero() {
           <div className="relative animate-slide-up lg:col-span-1">
             <div className="relative">
               <Image
-                src="/images/sascha-walk.jpg"
+                src="/images/sascha-kohler-coaching-session.jpg"
                 alt="Sascha Kohler - Raum für Selbstentdeckung schaffen"
                 width={400}
                 height={500}

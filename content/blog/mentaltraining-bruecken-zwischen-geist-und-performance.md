@@ -7,8 +7,6 @@ tags: ["Mentaltraining", "Performance", "KLARE-Methode", "Coaching", "Persönlic
 featured: true
 ---
 
-# Mentaltraining: Die Brücke zwischen Geist und Höchstleistung
-
 *"Der Geist ist alles. Was du denkst, das wirst du."* Diese Worte Buddhas führen direkt zum Kern dessen, was Mentaltraining ausmacht – die bewusste Entwicklung unserer mentalen Fähigkeiten für ein erfüllteres und erfolgreicheres Leben.
 
 ## Mein Weg zum Mentaltraining

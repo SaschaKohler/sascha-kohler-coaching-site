@@ -33,12 +33,11 @@ export const metadata: Metadata = {
     'Philosophischer Dialog',
     'Kongruenz',
     'Authentizität',
-    'Bachblüten Online',
     'Videocall Coaching',
     'Digitale Beratung',
     'Österreich',
     'Oberösterreich',
-    'Frohnleiten'
+    'Schwertberg'
   ],
   authors: [{ name: 'Sascha Kohler' }],
   creator: 'Sascha Kohler',
@@ -48,12 +47,12 @@ export const metadata: Metadata = {
     canonical: 'https://sascha-kohler.at',
   },
   icons: {
-    icon: '/favicon/favicon.svg',
-    shortcut: '/favicon/favicon.svg',
-    apple: '/favicon/favicon.svg',
+    icon: '/favicon/favicon.png',
+    shortcut: '/favicon/favicon.png',
+    apple: '/favicon/favicon.png',
     other: {
       rel: 'mask-icon',
-      url: '/favicon/favicon.svg',
+      url: '/favicon/favicon.png',
     },
   },
   openGraph: {
@@ -159,7 +158,7 @@ export default function RootLayout({
           {
             "@type": "EducationalOccupationalCredential",
             "name": "Apotheker",
-            "educationalLevel": "Diplom"
+            "educationalLevel": "Aprobation"
           }
         ],
         "knowsAbout": ["KLARE-Methode", "NLP", "Lebensberatung", "Persönlichkeitsentwicklung", "Bachblüten"],
@@ -197,6 +196,12 @@ export default function RootLayout({
   return (
     <html lang="de" className={`${inter.variable} ${merriweather.variable}`}>
       <head>
+        {/* Favicons für Google & Browser */}
+        <link rel="icon" type="image/png" href="/favicon.png" sizes="32x32" />
+        <link rel="icon" type="image/png" href="/favicon.png" sizes="16x16" />
+        <link rel="shortcut icon" href="/favicon.png" />
+        {/* SVG als Fallback */}
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
