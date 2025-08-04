@@ -11,33 +11,33 @@ const merriweather = Merriweather({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Online Lebensberatung & KLARE-Methode | Sascha Kohler - Diplomierter Lebens- und Sozialberater',
-    template: '%s | Sascha Kohler - Online Coaching',
+    default: 'KLARE-Methode Mentaltraining | Sascha Kohler - Mentaltrainer & Dipl. Lebensberater',
+    template: '%s | Sascha Kohler - KLARE-Methode Coaching',
   },
-  description: 'Online Lebensberatung mit diplomiertem Lebens- und Sozialberater. KLARE-Methode, NLP-Training & Video-Coaching. Flexible Online-Termine für Persönlichkeitsentwicklung. Jetzt Beratung buchen!',
+  description: 'KLARE-Methode für mentale Transformation: Klarheit, Lebendigkeit, Ausrichtung, Realisierung, Entfaltung. Mentaltraining & Lebensberatung in perfekter Symbiose. Online-Coaching für nachhaltige Persönlichkeitsentwicklung und Kongruenz.',
   keywords: [
-    'Online Lebensberatung',
-    'Digitale Persönlichkeitsentwicklung',
-    'KLARE Methode Online',
-    'Video Coaching',
-    'Online Coaching Österreich',
-    'Fernberatung Lebenshilfe',
-    'Virtuelle Beratung',
-    'Online NLP Training',
-    'Diplomierter Lebensberater',
-    'Sozialberater Online',
-    'NLP-Trainer',
-    'Mentaltrainer', 
-    'Lebensberatung',
-    'Selbstentdeckung',
-    'Philosophischer Dialog',
-    'Kongruenz',
-    'Authentizität',
-    'Videocall Coaching',
-    'Digitale Beratung',
-    'Österreich',
-    'Oberösterreich',
-    'Schwertberg'
+    'KLARE-Methode Mentaltraining',
+    'KLARE-Methode Coaching',
+    'Sascha Kohler Mentaltrainer',
+    'Mentaltraining Kongruenz',
+    'Diplomierter Lebens- und Sozialberater',
+    'Symbiose Mentaltraining Lebensberatung',
+    'KLARE Coaching System',
+    'Mentale Transformation 5 Schritte',
+    'Kongruenz Training Mental',
+    'Online Mentaltraining KLARE',
+    'Persönlichkeitsentwicklung Kongruenz',
+    'Lebensberatung Mentaltraining',
+    'Online Coaching KLARE-Methode',
+    'Video Coaching Mentaltrainer',
+    'Klarheit Lebendigkeit Ausrichtung Realisierung Entfaltung',
+    'KLARE-Methode Erfinder',
+    'Mentale Stärke Training Online',
+    'Kongruenz Coaching Oberösterreich',
+    'Authentische Persönlichkeitsentwicklung',
+    'Videocoaching Mental Kongruenz',
+    'Schwertberg Mentaltrainer',
+    'Mentale Programmierung KLARE'
   ],
   authors: [{ name: 'Sascha Kohler' }],
   creator: 'Sascha Kohler',
@@ -59,15 +59,15 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'de_AT',
     url: 'https://sascha-kohler.at',
-    title: 'Online Lebensberatung & KLARE-Methode | Sascha Kohler',
-    description: 'Diplomierter Lebens- und Sozialberater bietet Online-Coaching via Video-Call. KLARE-Methode für bewusste Persönlichkeitsentwicklung. Flexible Online-Termine verfügbar.',
-    siteName: 'Sascha Kohler - Online Coaching',
+    title: 'KLARE-Methode Mentaltraining | Sascha Kohler - Mentaltrainer & Dipl. Lebensberater',
+    description: 'Symbiose aus Mentaltraining & Lebensberatung: Die KLARE-Methode (Klarheit, Lebendigkeit, Ausrichtung, Realisierung, Entfaltung) für nachhaltige Kongruenz und Persönlichkeitsentwicklung.',
+    siteName: 'Sascha Kohler - KLARE-Methode Coaching',
     images: [
       {
         url: '/images/sascha-kohler-online-coaching.jpg',
         width: 1200,
         height: 630,
-        alt: 'Sascha Kohler - Online Lebensberatung und KLARE-Methode Coaching',
+        alt: 'Sascha Kohler - KLARE-Methode Mentaltraining und Lebensberatung',
       },
     ],
   },
@@ -95,13 +95,13 @@ export default function RootLayout({
       {
         "@type": "ProfessionalService",
         "@id": "https://sascha-kohler.at/#service",
-        "name": "Sascha Kohler - Online Lebensberatung",
-        "description": "Diplomierter Lebens- und Sozialberater bietet Online-Coaching, KLARE-Methode und NLP-Training via Video-Call",
+        "name": "Sascha Kohler - KLARE-Methode Mentaltraining",
+        "description": "Mentaltrainer und diplomierter Lebens- und Sozialberater bietet die KLARE-Methode für nachhaltige Persönlichkeitsentwicklung und mentale Transformation",
         "provider": {
           "@type": "Person",
           "@id": "https://sascha-kohler.at/#person"
         },
-        "serviceType": ["Online Lebensberatung", "Video Coaching", "KLARE-Methode Training", "NLP Training"],
+        "serviceType": ["KLARE-Methode Mentaltraining", "Mental-Coaching", "Online Lebensberatung", "Persönlichkeitsentwicklung", "Kongruenz-Training"],
         "areaServed": {
           "@type": "Country",
           "name": "Austria"
@@ -113,17 +113,22 @@ export default function RootLayout({
         },
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
-          "name": "Online Coaching Services",
+          "name": "KLARE-Methode Coaching",
           "itemListElement": [
             {
               "@type": "Offer",
-              "name": "Online Einzelcoaching",
-              "description": "Individuelle Online-Beratung via Video-Call"
+              "name": "KLARE-Methode Mentaltraining",
+              "description": "5-Schritte Mentale Transformation: Klarheit, Lebendigkeit, Ausrichtung, Realisierung, Entfaltung"
+            },
+            {
+              "@type": "Offer",
+              "name": "Mentaltraining & Lebensberatung Hybrid",
+              "description": "Einzigartige Symbiose aus Mentaltraining und professioneller Lebensberatung"
             },
             {
               "@type": "Offer", 
-              "name": "KLARE-Methode Online",
-              "description": "5-Schritte Persönlichkeitsentwicklung online lernen"
+              "name": "Online Kongruenz-Coaching",
+              "description": "Mentale Transformation für nachhaltige Kongruenz und authentische Persönlichkeitsentwicklung"
             }
           ]
         }
@@ -132,8 +137,8 @@ export default function RootLayout({
         "@type": "Person",
         "@id": "https://sascha-kohler.at/#person",
         "name": "Sascha Kohler",
-        "jobTitle": "Diplomierter Lebens- und Sozialberater",
-        "description": "NLP-Trainer, Mentaltrainer und Erfinder der KLARE-Methode mit 20+ Jahren Erfahrung",
+        "jobTitle": "Mentaltrainer & Diplomierter Lebens- und Sozialberater",
+        "description": "Erfinder der KLARE-Methode, Mentaltrainer und Diplomierter Lebens- und Sozialberater mit 20+ Jahren Erfahrung in mentaler Transformation",
         "url": "https://sascha-kohler.at",
         "image": "https://sascha-kohler.at/images/sascha-kohler.jpg",
         "sameAs": [
@@ -161,7 +166,7 @@ export default function RootLayout({
             "educationalLevel": "Aprobation"
           }
         ],
-        "knowsAbout": ["KLARE-Methode", "NLP", "Lebensberatung", "Persönlichkeitsentwicklung", "Bachblüten"],
+        "knowsAbout": ["KLARE-Methode", "Mentale Transformation", "Kongruenz-Training", "Mentaltraining", "Lebensberatung", "Persönlichkeitsentwicklung", "NLP", "Bachblüten"],
         "hasOccupation": {
           "@type": "Occupation",
           "name": "Lebens- und Sozialberater",
@@ -175,8 +180,8 @@ export default function RootLayout({
         "@type": "WebSite",
         "@id": "https://sascha-kohler.at/#website",
         "url": "https://sascha-kohler.at",
-        "name": "Sascha Kohler - Online Lebensberatung",
-        "description": "Online Coaching und KLARE-Methode Training",
+        "name": "Sascha Kohler - KLARE-Methode Mentaltraining",
+        "description": "KLARE-Methode Mentaltraining und Lebensberatung - Symbiose für nachhaltige Persönlichkeitsentwicklung",
         "publisher": {
           "@type": "Person",
           "@id": "https://sascha-kohler.at/#person"

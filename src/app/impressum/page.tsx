@@ -110,19 +110,8 @@ export default function ImpressumPage() {
               Verbraucherstreitbeilegung
             </h2>
             <p className="text-warm-brown leading-relaxed">
-              Wir erkennen den Internet Ombudsmann als außergerichtliche
-              Streitbeilegungsstelle an. Bei Beschwerden wenden Sie sich bitte
-              an: office@sascha-kohler.at oder an die Plattform zur
-              Online-Streitbeilegung der Europäischen Kommission:{' '}
-              <a
-                href="https://ec.europa.eu/consumers/odr"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-klare-k hover:text-klare-l underline"
-              >
-                https://ec.europa.eu/consumers/odr
-              </a>
-            </p>
+  Wir erkennen den Internet Ombudsmann als außergerichtliche Streitbeilegungsstelle an. Bei Beschwerden wenden Sie sich bitte an: office@sascha-kohler.at
+</p>
           </section>
 
           <section className="mb-8">
