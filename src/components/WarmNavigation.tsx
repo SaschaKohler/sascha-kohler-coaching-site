@@ -80,6 +80,7 @@ export default function WarmNavigation() {
           <ul className="hidden md:flex space-x-8">
             <li><NavLink href="/">Start</NavLink></li>
             <li><NavLink href="/ueber-mich">Über mich</NavLink></li>
+            <li><NavLink href="/ja-zum-leben">Ja zum Leben</NavLink></li>
             <li><NavLink href="/#methode">Methode</NavLink></li>
             <li><NavLink href="/online-beratung" highlight>Online-Beratung ⭐</NavLink></li>
             <li><NavLink href="/#qualifikationen">Qualifikationen</NavLink></li>
@@ -106,6 +107,7 @@ export default function WarmNavigation() {
             <ul className="space-y-2">
               <li><NavLink href="/" onClick={() => setIsOpen(false)}>Start</NavLink></li>
               <li><NavLink href="/ueber-mich" onClick={() => setIsOpen(false)}>Über mich</NavLink></li>
+              <li><NavLink href="/ja-zum-leben" onClick={() => setIsOpen(false)}>Ja zum Leben</NavLink></li>
               <li><NavLink href="/#methode" onClick={() => setIsOpen(false)}>Methode</NavLink></li>
               <li><NavLink href="/online-beratung" onClick={() => setIsOpen(false)} highlight>Online-Beratung ⭐</NavLink></li>
               <li><NavLink href="/#qualifikationen" onClick={() => setIsOpen(false)}>Qualifikationen</NavLink></li>

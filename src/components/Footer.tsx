@@ -7,14 +7,17 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold mb-4">Sascha Kohler</h3>
             <p className="text-neutral-400 mb-4">
-              Diplomierter Lebens- und Sozialberater, Erfinder der KLARE Methode und approbierter Apotheker mit 20+ Jahren Erfahrung in der menschenzentrierten Beratung.
+              Diplomierter Lebens- und Sozialberater, Erfinder der KLARE Methode
+              und approbierter Apotheker mit 20+ Jahren Erfahrung in der
+              menschenzentrierten Beratung.
             </p>
             <div className="text-sm text-neutral-500">
-              LSB-Einzelunternehmen<br />
+              Mentaltrainer-Einzelunternehmen
+              <br />
               Österreich
             </div>
           </div>
-          
+
           {/* Services */}
           <div>
             <h4 className="font-semibold mb-4">Leistungen</h4>
@@ -26,7 +29,7 @@ export default function Footer() {
               <li>Vorträge & Workshops</li>
             </ul>
           </div>
-          
+
           {/* Contact */}
           <div>
             <h4 className="font-semibold mb-4">Kontakt</h4>
@@ -37,14 +40,22 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        
+
         <div className="border-t border-neutral-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-neutral-500">
           <div>
-            © {new Date().getFullYear()} Sascha Kohler. Alle Rechte vorbehalten.
+            © {new Date().getFullYear()} Sascha Kohler. Alle Rechte
+            vorbehalten.
           </div>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="/impressum" className="hover:text-white transition-colors">Impressum</a>
-            <a href="/datenschutz" className="hover:text-white transition-colors">Datenschutz</a>
+            <a href="/impressum" className="hover:text-white transition-colors">
+              Impressum
+            </a>
+            <a
+              href="/datenschutz"
+              className="hover:text-white transition-colors"
+            >
+              Datenschutz
+            </a>
           </div>
         </div>
       </div>

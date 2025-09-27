@@ -94,9 +94,27 @@ const klareSteps = [
 
 export default function ApproachSection() {
   const [activeStep, setActiveStep] = useState(1);
-  const [isAutoPlay, setIsAutoPlay] = useState(true);
+  const [isAutoPlay, setIsAutoPlay] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
-  // Auto-advance through steps
+  // Detect mobile device
+  useEffect(() => {
+    const checkIsMobile = () => {
+      const isMobileDevice = window.innerWidth < 768 || 
+        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      setIsMobile(isMobileDevice);
+      // Only enable auto-play on desktop by default
+      if (!isMobileDevice) {
+        setIsAutoPlay(true);
+      }
+    };
+
+    checkIsMobile();
+    window.addEventListener('resize', checkIsMobile);
+    return () => window.removeEventListener('resize', checkIsMobile);
+  }, []);
+
+  // Auto-advance through steps (only when auto-play is enabled)
   useEffect(() => {
     if (!isAutoPlay) return;
     
