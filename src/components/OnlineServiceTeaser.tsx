@@ -57,9 +57,9 @@ export default function OnlineServiceTeaser() {
           <div className="bg-warm-white p-8 rounded-2xl border border-klare-r/20 mb-8">
             <blockquote className="text-center">
               <p className="text-lg text-warm-brown italic mb-4">
-                "Online-Mentaltraining ist oft sogar effektiver - Sie sind in Ihrer 
-                gewohnten Umgebung entspannter und können die gelernten Techniken 
-                sofort in Ihrem Alltag anwenden."
+                „Online-Mentaltraining ist oft sogar effektiver – Sie sind in Ihrer
+                gewohnten Umgebung entspannter und können die gelernten Techniken
+                sofort in Ihrem Alltag anwenden.“
               </p>
               <cite className="text-klare-r font-medium">— Sascha Kohler, Mentaltrainer</cite>
             </blockquote>

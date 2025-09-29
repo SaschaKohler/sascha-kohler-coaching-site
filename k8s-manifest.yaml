@@ -1,32 +1,33 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: sascha-kohler-coaching
+  name: sascha-kohler-at
 ---
 apiVersion: v1
 kind: Secret
 metadata:
   name: coaching-site-secrets
-  namespace: sascha-kohler-coaching
+  namespace: sascha-kohler-at
 type: Opaque
 stringData:
   MAKE_CONTACT_WEBHOOK_URL: "https://hook.eu2.make.com/lcovnsx4lhuhtr5vvjdfw0u1jihiyk77"
+  NEXT_PUBLIC_GA_ID: "GTM-ML4SLL6T"
   # NEXT_PUBLIC_MAKE_CONTACT_WEBHOOK_URL: "https://hook.eu2.make.com/lcovnsx4lhuhtr5vvjdfw0u1jihiyk77"
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sascha-kohler-coaching-site
-  namespace: sascha-kohler-coaching
+  name: sascha-kohler-website
+  namespace: sascha-kohler-at
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      app: sascha-kohler-coaching-site
+      app: sascha-kohler-website
   template:
     metadata:
       labels:
-        app: sascha-kohler-coaching-site
+        app: sascha-kohler-website
     spec:
       containers:
         - name: website
@@ -51,6 +52,11 @@ spec:
                 secretKeyRef:
                   name: coaching-site-secrets
                   key: MAKE_CONTACT_WEBHOOK_URL
+            - name: NEXT_PUBLIC_GA_ID
+              valueFrom:
+                secretKeyRef:
+                  name: coaching-site-secrets
+                  key: NEXT_PUBLIC_GA_ID
           resources:
             requests:
               memory: "256Mi"
@@ -99,10 +105,10 @@ apiVersion: v1
 kind: Service
 metadata:
   name: sascha-kohler-coaching-site
-  namespace: sascha-kohler-coaching
+  namespace: sascha-kohler-at
 spec:
   selector:
-    app: sascha-kohler-coaching-site
+    app: sascha-kohler-website
   ports:
     - port: 80
       name: http
@@ -113,8 +119,8 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: sascha-kohler-coaching-site
-  namespace: sascha-kohler-coaching
+  name: sascha-kohler-website
+  namespace: sascha-kohler-at
   annotations:
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
     kubernetes.io/ingress.class: "nginx"
@@ -142,7 +148,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: sascha-kohler-coaching-site
+                name: sascha-kohler-website
                 port:
                   number: 80
     - host: www.sascha-kohler.at
@@ -152,6 +158,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: sascha-kohler-coaching-site
+                name: sascha-kohler-website
                 port:
                   number: 80

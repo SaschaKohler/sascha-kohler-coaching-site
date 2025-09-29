@@ -79,10 +79,10 @@ export default function QualificationsSection() {
             </div>
 
             <blockquote className="italic text-warm-brown text-lg leading-relaxed border-l-4 border-klare-r pl-4">
-              "Als Mentaltrainer schaffe ich den Raum, in dem Sie selbst
+              „Als Mentaltrainer schaffe ich den Raum, in dem Sie selbst
               erkennen, was für Ihre mentale Stärke wichtig ist. Ihre Antworten
-              liegen bereits in Ihnen - ich helfe Ihnen nur dabei, sie zu
-              entdecken."
+              liegen bereits in Ihnen – ich helfe Ihnen nur dabei, sie zu
+              entdecken.“
             </blockquote>
           </div>
 

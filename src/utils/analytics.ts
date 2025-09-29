@@ -2,23 +2,28 @@
 export const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_ID;
 
 // Track page views
-export const pageview = (url: string) => {
-  if (typeof window !== 'undefined' && window.gtag && GA_TRACKING_ID) {
-    window.gtag('config', GA_TRACKING_ID, {
+export const pageview = (url: string): void => {
+  if (typeof window !== "undefined" && window.gtag && GA_TRACKING_ID) {
+    window.gtag("config", GA_TRACKING_ID, {
       page_path: url,
     });
   }
 };
 
 // Track specific events for SEO monitoring
-export const event = ({ action, category, label, value }: {
+export const event = ({
+  action,
+  category,
+  label,
+  value,
+}: {
   action: string;
   category: string;
   label?: string;
   value?: number;
-}) => {
-  if (typeof window !== 'undefined' && window.gtag && GA_TRACKING_ID) {
-    window.gtag('event', action, {
+}): void => {
+  if (typeof window !== "undefined" && window.gtag && GA_TRACKING_ID) {
+    window.gtag("event", action, {
       event_category: category,
       event_label: label,
       value: value,
@@ -27,45 +32,46 @@ export const event = ({ action, category, label, value }: {
 };
 
 // Specific events for Online Coaching tracking
-export const trackOnlineBooking = (type: 'started' | 'completed') => {
+export const trackOnlineBooking = (type: "started" | "completed"): void => {
   event({
-    action: type === 'started' ? 'booking_started' : 'booking_completed',
-    category: 'Online Coaching',
-    label: 'Online Booking Process',
+    action: type === "started" ? "booking_started" : "booking_completed",
+    category: "Online Coaching",
+    label: "Online Booking Process",
   });
 };
 
-export const trackVideoCallClick = () => {
+export const trackVideoCallClick = (): void => {
   event({
-    action: 'video_call_click',
-    category: 'Online Coaching',
-    label: 'Video Call CTA',
+    action: "video_call_click",
+    category: "Online Coaching",
+    label: "Video Call CTA",
   });
 };
 
-export const trackFAQInteraction = (question: string) => {
+export const trackFAQInteraction = (question: string): void => {
   event({
-    action: 'faq_opened',
-    category: 'Online Coaching',
+    action: "faq_opened",
+    category: "Online Coaching",
     label: question,
   });
 };
 
-export const trackPhoneClick = () => {
+export const trackPhoneClick = (): void => {
   event({
-    action: 'phone_click',
-    category: 'Contact',
-    label: 'Direct Phone Call',
+    action: "phone_click",
+    category: "Contact",
+    label: "Direct Phone Call",
   });
 };
 
 // Declare gtag for TypeScript
 declare global {
   interface Window {
-    gtag: (
-      command: 'config' | 'event',
+    gtag?: (
+      command: "config" | "event",
       targetId: string,
-      config?: any
+      config?: Record<string, unknown>,
     ) => void;
   }
 }
+

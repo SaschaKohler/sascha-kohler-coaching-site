@@ -87,7 +87,7 @@ export default function KlareMethod() {
   // Auto-advance through steps
   useEffect(() => {
     if (!isAutoPlay) return;
-    
+
     const interval = setInterval(() => {
       setActiveStep((prev) => (prev >= klareSteps.length ? 1 : prev + 1));
     }, 4000);
@@ -95,7 +95,7 @@ export default function KlareMethod() {
     return () => clearInterval(interval);
   }, [isAutoPlay]);
 
-  const activeStepData = klareSteps.find(step => step.id === activeStep);
+  const activeStepData = klareSteps.find((step) => step.id === activeStep);
 
   return (
     <section
@@ -104,21 +104,21 @@ export default function KlareMethod() {
     >
       {/* Animated Background */}
       <div className="absolute inset-0 opacity-30 dark:opacity-20">
-        <motion.div 
+        <motion.div
           className="absolute top-1/4 -left-1/4 w-96 h-96 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full blur-3xl"
-          animate={{ 
+          animate={{
             x: [0, 100, 0],
             y: [0, -50, 0],
-            scale: [1, 1.2, 1]
+            scale: [1, 1.2, 1],
           }}
           transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
         />
-        <motion.div 
+        <motion.div
           className="absolute bottom-1/4 -right-1/4 w-96 h-96 bg-gradient-to-r from-pink-400 to-orange-400 rounded-full blur-3xl"
-          animate={{ 
+          animate={{
             x: [0, -100, 0],
             y: [0, 50, 0],
-            scale: [1.2, 1, 1.2]
+            scale: [1.2, 1, 1.2],
           }}
           transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
         />
@@ -163,7 +163,7 @@ export default function KlareMethod() {
           {/* Progress Indicator */}
           <div className="flex justify-center mb-8">
             <div className="flex items-center space-x-2 bg-white/90 dark:bg-slate-800/90 backdrop-blur-xl rounded-full p-2 shadow-lg">
-              {klareSteps.map((step, index) => (
+              {klareSteps.map((step) => (
                 <motion.button
                   key={step.id}
                   onClick={() => {
@@ -171,9 +171,9 @@ export default function KlareMethod() {
                     setIsAutoPlay(false);
                   }}
                   className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    activeStep === step.id 
-                      ? `bg-gradient-to-r ${step.gradient}` 
-                      : 'bg-slate-300 dark:bg-slate-600'
+                    activeStep === step.id
+                      ? `bg-gradient-to-r ${step.gradient}`
+                      : "bg-slate-300 dark:bg-slate-600"
                   }`}
                   whileHover={{ scale: 1.2 }}
                   whileTap={{ scale: 0.9 }}
@@ -193,8 +193,9 @@ export default function KlareMethod() {
               className="relative"
             >
               {/* Active Step Card */}
-              <div className={`relative bg-gradient-to-br ${activeStepData?.bgGradient} dark:${activeStepData?.darkBgGradient} rounded-3xl md:rounded-[2rem] p-6 md:p-8 lg:p-12 shadow-2xl ${activeStepData?.shadowColor} border border-white/50 dark:border-slate-700/50 backdrop-blur-xl`}>
-                
+              <div
+                className={`relative bg-gradient-to-br ${activeStepData?.bgGradient} dark:${activeStepData?.darkBgGradient} rounded-3xl md:rounded-[2rem] p-6 md:p-8 lg:p-12 shadow-2xl ${activeStepData?.shadowColor} border border-white/50 dark:border-slate-700/50 backdrop-blur-xl`}
+              >
                 {/* Letter Circle */}
                 <motion.div
                   initial={{ scale: 0, rotate: -180 }}
@@ -202,13 +203,15 @@ export default function KlareMethod() {
                   transition={{ duration: 0.8, type: "spring" }}
                   className="relative"
                 >
-                  <div className={`w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br ${activeStepData?.gradient} rounded-2xl flex items-center justify-center font-bold text-white text-2xl md:text-3xl mx-auto mb-6 shadow-xl font-sans relative overflow-hidden`}>
+                  <div
+                    className={`w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br ${activeStepData?.gradient} rounded-2xl flex items-center justify-center font-bold text-white text-2xl md:text-3xl mx-auto mb-6 shadow-xl font-sans relative overflow-hidden`}
+                  >
                     {activeStepData?.letter}
                     <motion.div
                       className="absolute inset-0 bg-white/20"
-                      animate={{ 
+                      animate={{
                         scale: [1, 1.2, 1],
-                        opacity: [0.3, 0.1, 0.3]
+                        opacity: [0.3, 0.1, 0.3],
                       }}
                       transition={{ duration: 3, repeat: Infinity }}
                     />
@@ -225,7 +228,7 @@ export default function KlareMethod() {
                   >
                     {activeStepData?.title}
                   </motion.h3>
-                  
+
                   <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -251,7 +254,9 @@ export default function KlareMethod() {
                 <div className="flex justify-between items-center mt-8">
                   <motion.button
                     onClick={() => {
-                      setActiveStep(activeStep > 1 ? activeStep - 1 : klareSteps.length);
+                      setActiveStep(
+                        activeStep > 1 ? activeStep - 1 : klareSteps.length,
+                      );
                       setIsAutoPlay(false);
                     }}
                     whileHover={{ scale: 1.1, x: -5 }}
@@ -267,17 +272,21 @@ export default function KlareMethod() {
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     className={`p-3 backdrop-blur-xl rounded-full shadow-lg border transition-all duration-300 ${
-                      isAutoPlay 
-                        ? `bg-gradient-to-r ${activeStepData?.gradient} border-white/50 text-white shadow-xl` 
-                        : 'bg-white/80 dark:bg-slate-800/80 border-white/50 dark:border-slate-700/50 text-slate-600 dark:text-slate-300'
+                      isAutoPlay
+                        ? `bg-gradient-to-r ${activeStepData?.gradient} border-white/50 text-white shadow-xl`
+                        : "bg-white/80 dark:bg-slate-800/80 border-white/50 dark:border-slate-700/50 text-slate-600 dark:text-slate-300"
                     }`}
                   >
-                    <PlayIcon className={`w-6 h-6 ${!isAutoPlay ? 'transform scale-110' : ''}`} />
+                    <PlayIcon
+                      className={`w-6 h-6 ${!isAutoPlay ? "transform scale-110" : ""}`}
+                    />
                   </motion.button>
 
                   <motion.button
                     onClick={() => {
-                      setActiveStep(activeStep < klareSteps.length ? activeStep + 1 : 1);
+                      setActiveStep(
+                        activeStep < klareSteps.length ? activeStep + 1 : 1,
+                      );
                       setIsAutoPlay(false);
                     }}
                     whileHover={{ scale: 1.1, x: 5 }}
@@ -298,7 +307,7 @@ export default function KlareMethod() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="grid grid-cols-5 gap-2 md:gap-4 mt-8 max-w-2xl mx-auto"
           >
-            {klareSteps.map((step, index) => {
+            {klareSteps.map((step) => {
               const IconComponent = step.icon;
               return (
                 <motion.button
@@ -312,11 +321,13 @@ export default function KlareMethod() {
                   className={`relative p-3 md:p-4 rounded-2xl transition-all duration-300 ${
                     activeStep === step.id
                       ? `bg-gradient-to-br ${step.gradient} text-white shadow-xl ${step.shadowColor}`
-                      : 'bg-white/60 dark:bg-slate-800/60 text-slate-600 dark:text-slate-400 hover:bg-white/80 dark:hover:bg-slate-700/80'
+                      : "bg-white/60 dark:bg-slate-800/60 text-slate-600 dark:text-slate-400 hover:bg-white/80 dark:hover:bg-slate-700/80"
                   } backdrop-blur-xl border border-white/50 dark:border-slate-700/50`}
                 >
                   <IconComponent className="w-6 h-6 md:w-8 md:h-8 mx-auto mb-2" />
-                  <div className={`text-xs md:text-sm font-bold ${activeStep === step.id ? 'text-white' : ''}`}>
+                  <div
+                    className={`text-xs md:text-sm font-bold ${activeStep === step.id ? "text-white" : ""}`}
+                  >
                     {step.letter}
                   </div>
                   {activeStep === step.id && (
@@ -344,8 +355,8 @@ export default function KlareMethod() {
                 Starten Sie Ihre mentale Transformation
               </h3>
               <p className="text-lg text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
-                Entdecken Sie in einem kostenlosen Gespräch, wie die KLARE Methode 
-                Ihr Leben verändern kann.
+                Entdecken Sie in einem kostenlosen Gespräch, wie die KLARE
+                Methode Ihr Leben verändern kann.
               </p>
               <motion.button
                 whileHover={{ scale: 1.05, y: -2 }}
@@ -361,3 +372,4 @@ export default function KlareMethod() {
     </section>
   );
 }
+

@@ -160,7 +160,7 @@ export default function ApproachSection() {
                 </p>
                 <div className="border-l-4 border-klare-k pl-6">
                   <p className="text-lg text-dark-brown font-medium italic">
-                    "Wirklichkeit ist das, was wirkt."
+                    „Wirklichkeit ist das, was wirkt.“
                   </p>
                   <p className="text-warm-brown mt-3">
                     Wenn Sie kongruent leben, wirken Sie authentisch und

@@ -1,5 +1,4 @@
-import React from 'react';
-import Image from 'next/image';
+import React from "react";
 
 export default function KlareMethodPresentation() {
   return (
@@ -10,8 +9,9 @@ export default function KlareMethodPresentation() {
             Die KLARE-Methode live erleben
           </h2>
           <p className="text-lg text-warm-brown max-w-3xl mx-auto leading-relaxed">
-            Statt eines Videos lade ich Sie ein, die KLARE-Methode in einem persönlichen Gespräch 
-            kennenzulernen. So erhalten Sie eine maßgeschneiderte Einführung.
+            Statt eines Videos lade ich Sie ein, die KLARE-Methode in einem
+            persönlichen Gespräch kennenzulernen. So erhalten Sie eine
+            maßgeschneiderte Einführung.
           </p>
         </div>
 
@@ -33,7 +33,9 @@ export default function KlareMethodPresentation() {
                 </video>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent">
                   <div className="absolute bottom-4 left-4 text-white">
-                    <p className="text-sm opacity-90">Kongruenz - die zentrale Frage der KLARE-Methode</p>
+                    <p className="text-sm opacity-90">
+                      Kongruenz - die zentrale Frage der KLARE-Methode
+                    </p>
                   </div>
                 </div>
               </div>
@@ -44,15 +46,19 @@ export default function KlareMethodPresentation() {
               <h3 className="font-serif text-2xl font-light text-dark-brown">
                 Warum ein persönliches Gespräch besser ist als jedes Video
               </h3>
-              
+
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
                   <div className="w-6 h-6 bg-klare-k rounded-full flex items-center justify-center text-white text-sm font-bold mt-1">
                     K
                   </div>
                   <div>
-                    <h4 className="font-semibold text-dark-brown">Klarheit über Ihre Situation</h4>
-                    <p className="text-warm-brown text-sm">Wir besprechen konkret Ihre Herausforderungen</p>
+                    <h4 className="font-semibold text-dark-brown">
+                      Klarheit über Ihre Situation
+                    </h4>
+                    <p className="text-warm-brown text-sm">
+                      Wir besprechen konkret Ihre Herausforderungen
+                    </p>
                   </div>
                 </div>
 
@@ -61,8 +67,12 @@ export default function KlareMethodPresentation() {
                     L
                   </div>
                   <div>
-                    <h4 className="font-semibold text-dark-brown">Lebendiger Austausch</h4>
-                    <p className="text-warm-brown text-sm">Direkte Fragen und Antworten, kein einseitiges Video</p>
+                    <h4 className="font-semibold text-dark-brown">
+                      Lebendiger Austausch
+                    </h4>
+                    <p className="text-warm-brown text-sm">
+                      Direkte Fragen und Antworten, kein einseitiges Video
+                    </p>
                   </div>
                 </div>
 
@@ -71,8 +81,12 @@ export default function KlareMethodPresentation() {
                     A
                   </div>
                   <div>
-                    <h4 className="font-semibold text-dark-brown">Ausrichtung auf Sie</h4>
-                    <p className="text-warm-brown text-sm">Maßgeschneiderte Erklärung für Ihre Bedürfnisse</p>
+                    <h4 className="font-semibold text-dark-brown">
+                      Ausrichtung auf Sie
+                    </h4>
+                    <p className="text-warm-brown text-sm">
+                      Maßgeschneiderte Erklärung für Ihre Bedürfnisse
+                    </p>
                   </div>
                 </div>
               </div>
@@ -82,9 +96,10 @@ export default function KlareMethodPresentation() {
                   30 Minuten, die Ihr Leben verändern können
                 </h4>
                 <p className="text-warm-brown mb-4 text-sm">
-                  ✅ Kostenlos und unverbindlich<br/>
-                  ✅ Online oder vor Ort möglich<br/>
-                  ✅ Sofort umsetzbare Impulse
+                  ✅ Kostenlos und unverbindlich
+                  <br />
+                  ✅ Online oder vor Ort möglich
+                  <br />✅ Sofort umsetzbare Impulse
                 </p>
                 <a
                   href="https://calendar.app.google/6Tp1TGMBSR8cm5tX6"
@@ -97,7 +112,7 @@ export default function KlareMethodPresentation() {
               </div>
 
               <p className="text-xs text-warm-brown/70 italic">
-                "Echte Begegnung wirkt stärker als jedes Video" - Sascha Kohler
+                Echte Begegnung wirkt stärker als jedes Video - Sascha Kohler
               </p>
             </div>
           </div>

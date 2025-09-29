@@ -33,7 +33,7 @@ export default function AboutHero() {
                 Über mich
               </h1>
               <p className="text-xl text-warm-brown italic mb-8 font-light">
-                "Authentisch sein heißt auch, die eigenen Brüche zu zeigen"
+                „Authentisch sein heißt auch, die eigenen Brüche zu zeigen“
               </p>
               
               <div className="space-y-6 text-warm-brown leading-relaxed">

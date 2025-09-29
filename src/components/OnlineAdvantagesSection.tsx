@@ -72,9 +72,9 @@ export default function OnlineAdvantagesSection() {
               Mentaltrainer-Erfahrung bestätigt
             </h3>
             <p className="text-warm-brown/80 leading-relaxed mb-6">
-              "In über 20 Jahren Praxis erlebe ich: Online-Mentaltraining ist oft sogar 
+              „In über 20 Jahren Praxis erlebe ich: Online-Mentaltraining ist oft sogar 
               effektiver. Meine Klienten sind entspannter, können die Techniken sofort 
-              in ihrer gewohnten Umgebung anwenden und sind offener für neue Denkmuster."
+              in ihrer gewohnten Umgebung anwenden und sind offener für neue Denkmuster.“
             </p>
             <p className="text-klare-r font-medium italic mb-6">— Sascha Kohler, Mentaltrainer</p>
             <a 

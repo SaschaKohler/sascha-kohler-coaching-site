@@ -76,7 +76,7 @@ export default function WarmFooter() {
           </p>
         </div>
         <p className="text-sm text-light-beige text-center italic">
-          "Der Klient schafft sich den Raum, um sich selbst wiederzuentdecken"
+          „Der Klient schafft sich den Raum, um sich selbst wiederzuentdecken“
         </p>
       </div>
     </footer>

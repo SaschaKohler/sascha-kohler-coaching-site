@@ -95,15 +95,14 @@ const klareSteps = [
 export default function ApproachSection() {
   const [activeStep, setActiveStep] = useState(1);
   const [isAutoPlay, setIsAutoPlay] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
 
   // Detect mobile device
   useEffect(() => {
     const checkIsMobile = () => {
-      const isMobileDevice = window.innerWidth < 768 || 
+      const isMobileDevice =
+        window.innerWidth < 768 ||
         /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-      setIsMobile(isMobileDevice);
-      // Only enable auto-play on desktop by default
+
       if (!isMobileDevice) {
         setIsAutoPlay(true);
       }
@@ -363,7 +362,7 @@ export default function ApproachSection() {
                 </p>
                 <div className="border-l-4 border-klare-k pl-6">
                   <p className="text-lg md:text-xl text-dark-brown font-medium italic font-serif">
-                    "Wirklichkeit ist das, was wirkt."
+                    „Wirklichkeit ist das, was wirkt.“
                   </p>
                   <p className="text-warm-brown mt-3 text-base md:text-lg">
                     Wenn Sie kongruent leben, wirken Sie authentisch und
