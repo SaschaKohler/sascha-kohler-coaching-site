@@ -11,7 +11,7 @@ metadata:
 type: Opaque
 stringData:
   MAKE_CONTACT_WEBHOOK_URL: "https://hook.eu2.make.com/lcovnsx4lhuhtr5vvjdfw0u1jihiyk77"
-  NEXT_PUBLIC_GA_ID: "GTM-ML4SLL6T"
+  NEXT_PUBLIC_GTM_ID: "GTM-ML4SLL6T"
   # NEXT_PUBLIC_MAKE_CONTACT_WEBHOOK_URL: "https://hook.eu2.make.com/lcovnsx4lhuhtr5vvjdfw0u1jihiyk77"
 ---
 apiVersion: apps/v1
@@ -32,7 +32,7 @@ spec:
       containers:
         - name: website
           image: blisha234/sascha-kohler-coaching:latest
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           startupProbe:
             httpGet:
               path: /
@@ -52,11 +52,11 @@ spec:
                 secretKeyRef:
                   name: coaching-site-secrets
                   key: MAKE_CONTACT_WEBHOOK_URL
-            - name: NEXT_PUBLIC_GA_ID
+            - name: NEXT_PUBLIC_GTM_ID
               valueFrom:
                 secretKeyRef:
                   name: coaching-site-secrets
-                  key: NEXT_PUBLIC_GA_ID
+                  key: NEXT_PUBLIC_GTM_ID
           resources:
             requests:
               memory: "256Mi"

@@ -10,25 +10,27 @@ import {
 } from "react";
 import Script from "next/script";
 import CookieConsentBanner from "./CookieConsentBanner";
+import {
+  CONSENT_VERSION,
+  DEFAULT_PREFERENCES,
+  STORAGE_KEY,
+  normalizePreferences,
+  parseStoredConsent,
+  persistConsent,
+  readConsentFromCookie,
+  readConsentFromStorage,
+  type ConsentPreferences,
+  type StoredConsent,
+} from "../utils/consent";
+import {
+  GTM_CONTAINER_ID,
+  setConsentModeDefaults,
+  updateConsentMode,
+} from "../utils/analytics";
 
-export const STORAGE_KEY = "sk-cookie-consent";
-export const COOKIE_KEY = "sk_cookie_consent";
-export const COOKIE_MAX_AGE_DAYS = 180;
+const GTM_ID = GTM_CONTAINER_ID;
 
-const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID;
-export const CONSENT_VERSION = 1;
-
-type GaDisableProperty = `ga-disable-${string}`;
-
-export type ConsentCategory = "necessary" | "statistics" | "marketing";
-
-export type ConsentPreferences = Record<ConsentCategory, boolean>;
-
-type StoredConsent = {
-  version: number;
-  preferences: ConsentPreferences;
-  updatedAt: string;
-};
+type GtmDisableProperty = `gtm-disable-${string}`;
 
 type ConsentStatus = "unknown" | "saved";
 
@@ -41,87 +43,40 @@ type ConsentContextValue = {
   savePreferences: (prefs: ConsentPreferences) => void;
 };
 
-const DEFAULT_PREFERENCES: ConsentPreferences = {
-  necessary: true,
-  statistics: false,
-  marketing: false,
-};
-
 const CookieConsentContext = createContext<ConsentContextValue | undefined>(
   undefined,
 );
 
-const normalizePreferences = (
-  prefs: ConsentPreferences,
-): ConsentPreferences => ({
-  ...DEFAULT_PREFERENCES,
-  ...prefs,
-  necessary: true,
-});
-
-const parseStoredConsent = (
-  value: string | null | undefined,
-): StoredConsent | null => {
-  if (!value) return null;
-
-  try {
-    const parsed = JSON.parse(value) as Partial<StoredConsent>;
-    if (!parsed || typeof parsed !== "object" || !parsed.preferences) {
-      return null;
-    }
-
-    return {
-      version: typeof parsed.version === "number" ? parsed.version : 0,
-      preferences: normalizePreferences(parsed.preferences),
-      updatedAt: parsed.updatedAt ?? new Date().toISOString(),
-    };
-  } catch (error) {
-    console.warn("Failed to parse stored cookie consent", error);
-    return null;
-  }
-};
-
-const readConsentFromCookie = (): StoredConsent | null => {
-  if (typeof document === "undefined") return null;
-
-  const raw = document.cookie
-    .split("; ")
-    .find((row) => row.startsWith(`${COOKIE_KEY}=`))
-    ?.split("=")?.[1];
-
-  if (!raw) return null;
-
-  try {
-    return parseStoredConsent(decodeURIComponent(raw));
-  } catch (error) {
-    console.warn("Failed to decode cookie consent cookie", error);
-    return null;
-  }
-};
-
-const AnalyticsScripts = ({ enabled }: { enabled: boolean }) => {
-  if (!enabled || !GA_MEASUREMENT_ID) {
+const AnalyticsScripts = () => {
+  if (!GTM_ID) {
     return null;
   }
 
   return (
     <>
-      <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-        strategy="afterInteractive"
-      />
-      <Script id="gtag-init" strategy="afterInteractive">
+      <Script id="gtm-loader" strategy="afterInteractive">
         {`
           window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          window.gtag = gtag;
-          window['ga-disable-${GA_MEASUREMENT_ID}'] = false;
+          function gtag(){window.dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', '${GA_MEASUREMENT_ID}', {
-            anonymize_ip: true,
-            allow_google_signals: false,
-            allow_ad_personalization_signals: false,
-          });
+          gtag('consent', 'default', ${JSON.stringify({
+            ad_storage: "denied",
+            analytics_storage: "denied",
+            ad_user_data: "denied",
+            ad_personalization: "denied",
+            functionality_storage: "granted",
+            security_storage: "granted",
+          })});
+          (function(w,d,s,l,i){
+            w[l]=w[l]||[];
+            w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
+            var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),
+              dl=l!='dataLayer'?'&l='+l:'';
+            j.async=true;
+            j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+            f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','${GTM_ID}');
         `}
       </Script>
     </>
@@ -140,42 +95,25 @@ export const AnalyticsConsentProvider = ({
   const [managerOpen, setManagerOpen] = useState(false);
   const [isInitialized, setIsInitialized] = useState(() => !isClient);
 
-  const setGaDisabled = useCallback((disabled: boolean) => {
-    if (typeof window === "undefined" || !GA_MEASUREMENT_ID) return;
-    (window as typeof window & Record<GaDisableProperty, boolean>)[
-      `ga-disable-${GA_MEASUREMENT_ID}`
-    ] = disabled;
-  }, []);
+  const setGtmDisabled = useCallback(
+    (disabled: boolean) => {
+      if (typeof window === "undefined" || !GTM_ID) return;
+
+      (window as typeof window & Record<GtmDisableProperty, boolean>)[
+        `gtm-disable-${GTM_ID}`
+      ] = disabled;
+    },
+    [],
+  );
 
   useEffect(() => {
-    setGaDisabled(!preferences.statistics);
-  }, [preferences.statistics, setGaDisabled]);
+    if (!GTM_ID) return;
+    setGtmDisabled(!preferences.statistics);
+    updateConsentMode(preferences);
+  }, [preferences, setGtmDisabled]);
 
   const persistPreferences = useCallback((prefs: ConsentPreferences) => {
-    if (typeof window === "undefined") return;
-
-    const payload: StoredConsent = {
-      version: CONSENT_VERSION,
-      preferences: prefs,
-      updatedAt: new Date().toISOString(),
-    };
-
-    const serialized = JSON.stringify(payload);
-
-    try {
-      window.localStorage.setItem(STORAGE_KEY, serialized);
-    } catch (error) {
-      console.warn("Cookie consent localStorage unavailable", error);
-    }
-
-    try {
-      const maxAgeSeconds = COOKIE_MAX_AGE_DAYS * 24 * 60 * 60;
-      const expiresAt = new Date(Date.now() + maxAgeSeconds * 1000).toUTCString();
-      const secureFlag = window.location.protocol === "https:" ? "; Secure" : "";
-      document.cookie = `${COOKIE_KEY}=${encodeURIComponent(serialized)}; Max-Age=${maxAgeSeconds}; Expires=${expiresAt}; Path=/; SameSite=Lax${secureFlag}`;
-    } catch (error) {
-      console.warn("Cookie consent cookie unavailable", error);
-    }
+    persistConsent(prefs);
   }, []);
 
   const applyStoredConsent = useCallback(
@@ -186,6 +124,8 @@ export const AnalyticsConsentProvider = ({
       setPreferences(normalized);
       setStatus("saved");
       setManagerOpen(false);
+
+      updateConsentMode(normalized);
 
       if (stored.version !== CONSENT_VERSION) {
         persistPreferences(normalized);
@@ -203,6 +143,7 @@ export const AnalyticsConsentProvider = ({
       setStatus("saved");
       persistPreferences(normalized);
       setManagerOpen(false);
+      updateConsentMode(normalized);
     },
     [persistPreferences],
   );
@@ -223,25 +164,11 @@ export const AnalyticsConsentProvider = ({
     if (typeof window === "undefined") return;
 
     try {
-      let storedFromLocalStorage: StoredConsent | null = null;
+      setConsentModeDefaults();
+      const storedFromLocalStorage = readConsentFromStorage();
+      const storedFromCookie = storedFromLocalStorage ?? readConsentFromCookie();
 
-      try {
-        storedFromLocalStorage = parseStoredConsent(
-          window.localStorage.getItem(STORAGE_KEY),
-        );
-      } catch (error) {
-        console.warn("Cookie consent localStorage unavailable", error);
-      }
-
-      let storedFromCookie: StoredConsent | null = null;
-
-      try {
-        storedFromCookie = readConsentFromCookie();
-      } catch (error) {
-        console.warn("Cookie consent cookie unavailable", error);
-      }
-
-      if (!applyStoredConsent(storedFromLocalStorage ?? storedFromCookie)) {
+      if (!applyStoredConsent(storedFromCookie)) {
         setStatus("unknown");
         setManagerOpen(true);
       }
@@ -318,9 +245,7 @@ export const AnalyticsConsentProvider = ({
           Cookie-Einstellungen
         </button>
       )}
-      <AnalyticsScripts
-        enabled={status === "saved" && preferences.statistics}
-      />
+      <AnalyticsScripts />
     </CookieConsentContext.Provider>
   );
 };

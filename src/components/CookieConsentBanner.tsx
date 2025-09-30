@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import type { ConsentPreferences } from "./AnalyticsConsentProvider";
+import type { ConsentPreferences } from "../utils/consent";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 
 type CookieConsentBannerProps = {
