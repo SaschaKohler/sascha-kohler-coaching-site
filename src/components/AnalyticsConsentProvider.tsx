@@ -28,8 +28,6 @@ import {
   updateConsentMode,
 } from "../utils/analytics";
 
-const GTM_ID = GTM_CONTAINER_ID;
-
 type GtmDisableProperty = `gtm-disable-${string}`;
 
 type ConsentStatus = "unknown" | "saved";
@@ -48,7 +46,7 @@ const CookieConsentContext = createContext<ConsentContextValue | undefined>(
 );
 
 const AnalyticsScripts = () => {
-  if (!GTM_ID) {
+  if (!GTM_CONTAINER_ID) {
     return null;
   }
 
@@ -76,9 +74,18 @@ const AnalyticsScripts = () => {
             j.async=true;
             j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
             f.parentNode.insertBefore(j,f);
-          })(window,document,'script','dataLayer','${GTM_ID}');
+          })(window,document,'script','dataLayer','${GTM_CONTAINER_ID}');
         `}
       </Script>
+      <noscript>
+        <iframe
+          src={`https://www.googletagmanager.com/ns.html?id=${GTM_CONTAINER_ID}`}
+          height="0"
+          width="0"
+          style={{ display: "none", visibility: "hidden" }}
+          title="Google Tag Manager"
+        />
+      </noscript>
     </>
   );
 };
@@ -97,17 +104,17 @@ export const AnalyticsConsentProvider = ({
 
   const setGtmDisabled = useCallback(
     (disabled: boolean) => {
-      if (typeof window === "undefined" || !GTM_ID) return;
+      if (typeof window === "undefined" || !GTM_CONTAINER_ID) return;
 
       (window as typeof window & Record<GtmDisableProperty, boolean>)[
-        `gtm-disable-${GTM_ID}`
+        `gtm-disable-${GTM_CONTAINER_ID}`
       ] = disabled;
     },
     [],
   );
 
   useEffect(() => {
-    if (!GTM_ID) return;
+    if (!GTM_CONTAINER_ID) return;
     setGtmDisabled(!preferences.statistics);
     updateConsentMode(preferences);
   }, [preferences, setGtmDisabled]);

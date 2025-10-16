@@ -80,95 +80,100 @@ const CookieConsentBanner = ({
   }
 
   return (
-    <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-slate-900/70 px-4 py-8">
-      <div className="relative w-full max-w-2xl rounded-2xl bg-white shadow-2xl">
-        <div className="flex items-start justify-between border-b border-slate-100 px-6 py-5">
-          <div>
-            <h2 className="text-lg font-semibold text-slate-900">Cookie-Einstellungen</h2>
-            <p className="mt-2 text-sm text-slate-600">
-              {CONSENT_TEXT} {" "}
-              <Link href="/datenschutz" className="underline decoration-slate-400 underline-offset-4 hover:text-slate-900">
-                Datenschutzerklärung
-              </Link>
-              .
-            </p>
+    <div className="fixed inset-0 z-[1000] flex flex-col justify-end bg-slate-900/70 px-4 py-6 sm:flex sm:items-center sm:justify-center sm:px-6 sm:py-8">
+      <div className="relative w-full max-w-2xl overflow-hidden rounded-2xl bg-white shadow-2xl">
+        <div className="flex max-h-[calc(100vh-4rem)] flex-col overflow-hidden sm:max-h-[calc(100vh-6rem)]">
+          <div className="flex flex-col gap-4 border-b border-slate-100 px-5 py-4 sm:flex-row sm:items-start sm:justify-between sm:px-6 sm:py-5">
+            <div>
+              <h2 className="text-lg font-semibold text-slate-900">Cookie-Einstellungen</h2>
+              <p className="mt-2 text-sm text-slate-600">
+                {CONSENT_TEXT} {" "}
+                <Link
+                  href="/datenschutz"
+                  className="font-medium underline decoration-slate-400 underline-offset-4 hover:text-slate-900"
+                >
+                  Datenschutzerklärung
+                </Link>
+                .
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={onClose}
+              disabled={!allowClose}
+              className="self-end rounded-full p-2 text-slate-500 transition hover:bg-slate-100 hover:text-slate-900 disabled:cursor-not-allowed disabled:opacity-40 sm:self-auto"
+              aria-label="Cookie-Einstellungen schließen"
+            >
+              <XMarkIcon className="h-5 w-5" />
+            </button>
           </div>
-          <button
-            type="button"
-            onClick={onClose}
-            disabled={!allowClose}
-            className="ml-4 rounded-full p-2 text-slate-500 transition hover:bg-slate-100 hover:text-slate-900 disabled:cursor-not-allowed disabled:opacity-40"
-            aria-label="Cookie-Einstellungen schließen"
-          >
-            <XMarkIcon className="h-5 w-5" />
-          </button>
-        </div>
 
-        <div className="space-y-3 px-6 py-4">
-          {categories.map((category) => {
-            const isRequired = category === "necessary";
-            const active = selection[category];
-            const { title, description } = CATEGORY_TEXT[category];
+          <div className="flex-1 space-y-4 overflow-y-auto px-5 py-4 sm:px-6">
+            {categories.map((category) => {
+              const isRequired = category === "necessary";
+              const active = selection[category];
+              const { title, description } = CATEGORY_TEXT[category];
 
-            return (
-              <div
-                key={category}
-                className="rounded-xl border border-slate-200 bg-slate-50 px-5 py-4"
-              >
-                <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-                  <div>
-                    <p className="text-base font-semibold text-slate-900">{title}</p>
-                    <p className="mt-1 text-sm text-slate-600">{description}</p>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <span className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                      {active ? "Aktiv" : "Inaktiv"}
-                    </span>
-                    <button
-                      type="button"
-                      onClick={() => toggleCategory(category)}
-                      disabled={isRequired}
-                      className={`relative h-6 w-12 rounded-full border transition focus:outline-none focus-visible:ring-2 focus-visible:ring-klare-k focus-visible:ring-offset-2 ${
-                        active ? "border-klare-k bg-klare-k" : "border-slate-300 bg-white"
-                      } ${isRequired ? "cursor-not-allowed opacity-60" : ""}`}
-                      aria-pressed={active}
-                      aria-label={`${title} ${active ? "deaktivieren" : "aktivieren"}`}
-                    >
-                      <span
-                        className={`absolute top-1/2 h-4 w-4 -translate-y-1/2 transform rounded-full bg-white shadow transition ${
-                          active ? "right-1" : "left-1"
-                        }`}
-                      />
-                    </button>
+              return (
+                <div
+                  key={category}
+                  className="rounded-xl border border-slate-200 bg-slate-50 px-5 py-4"
+                >
+                  <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p className="text-base font-semibold text-slate-900">{title}</p>
+                      <p className="mt-1 text-sm text-slate-600">{description}</p>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <span className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                        {active ? "Aktiv" : "Inaktiv"}
+                      </span>
+                      <button
+                        type="button"
+                        onClick={() => toggleCategory(category)}
+                        disabled={isRequired}
+                        className={`relative h-6 w-12 rounded-full border transition focus:outline-none focus-visible:ring-2 focus-visible:ring-klare-k focus-visible:ring-offset-2 ${
+                          active ? "border-klare-k bg-klare-k" : "border-slate-300 bg-white"
+                        } ${isRequired ? "cursor-not-allowed opacity-60" : ""}`}
+                        aria-pressed={active}
+                        aria-label={`${title} ${active ? "deaktivieren" : "aktivieren"}`}
+                      >
+                        <span
+                          className={`absolute top-1/2 h-4 w-4 -translate-y-1/2 transform rounded-full bg-white shadow transition ${
+                            active ? "right-1" : "left-1"
+                          }`}
+                        />
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
-        </div>
+              );
+            })}
+          </div>
 
-        <div className="flex flex-col gap-3 border-t border-slate-100 px-6 py-5 md:flex-row md:justify-end">
-          <button
-            type="button"
-            onClick={onDeclineAll}
-            className="w-full rounded-md border border-slate-300 px-5 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-100 md:w-auto"
-          >
-            Alle ablehnen
-          </button>
-          <button
-            type="button"
-            onClick={onAcceptAll}
-            className="w-full rounded-md bg-klare-k px-5 py-2 text-sm font-semibold text-white transition hover:bg-klare-k/90 md:w-auto"
-          >
-            Alle akzeptieren
-          </button>
-          <button
-            type="button"
-            onClick={() => onSaveSelection(selection)}
-            className="w-full rounded-md border border-pink-200 bg-pink-50 px-5 py-2 text-sm font-semibold text-pink-700 transition hover:bg-pink-100 md:w-auto"
-          >
-            Auswahl speichern
-          </button>
+          <div className="flex flex-col gap-3 border-t border-slate-100 px-5 py-4 sm:px-6 sm:py-5 md:flex-row md:justify-end">
+            <button
+              type="button"
+              onClick={onDeclineAll}
+              className="w-full rounded-md border border-slate-300 px-5 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-100 md:w-auto"
+            >
+              Alle ablehnen
+            </button>
+            <button
+              type="button"
+              onClick={onAcceptAll}
+              className="w-full rounded-md bg-klare-k px-5 py-2 text-sm font-semibold text-white transition hover:bg-klare-k/90 md:w-auto"
+            >
+              Alle akzeptieren
+            </button>
+            <button
+              type="button"
+              onClick={() => onSaveSelection(selection)}
+              className="w-full rounded-md border border-pink-200 bg-pink-50 px-5 py-2 text-sm font-semibold text-pink-700 transition hover:bg-pink-100 md:w-auto"
+            >
+              Auswahl speichern
+            </button>
+          </div>
         </div>
       </div>
     </div>

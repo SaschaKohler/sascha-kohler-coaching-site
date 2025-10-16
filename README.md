@@ -39,7 +39,7 @@ Diese Website präsentiert Sascha Kohler als diplomierten Lebens- und Sozialbera
 - **Tailwind CSS** - Utility-first CSS Framework mit Custom Design System
 - **Framer Motion** - Smooth Animations und Transitions
 - **Lucide React** - Modern Icon Library
-- **Google Analytics** - Event-Tracking für Online-Coaching Conversions
+- **Google Tag Manager** - Zentrale Tag-Verwaltung mit Cookie Consent Integration
 
 ## 📦 Installation & Setup
 
@@ -53,7 +53,7 @@ npm install
 
 # Environment Variables konfigurieren
 cp .env.example .env.local
-# Google Analytics ID und andere Konfigurationen eintragen
+# Google Tag Manager ID und andere Konfigurationen eintragen
 
 # Development Server starten
 npm run dev
@@ -61,10 +61,11 @@ npm run dev
 
 ### 🔧 SEO-Konfiguration
 
-1. **Google Analytics einrichten:**
+1. **Google Tag Manager einrichten:**
    ```bash
-   NEXT_PUBLIC_GA_ID=your_google_analytics_id
+   NEXT_PUBLIC_GTM_ID=GTM-XXXXXXX
    ```
+   **Hinweis:** Die Website verwendet ausschließlich GTM. Alle Tracking-Tags (Google Analytics, etc.) werden im Tag Manager verwaltet. Der integrierte Cookie Consent Manager steuert die Zustimmung über den Google Consent Mode v2.
 
 2. **Kontaktdaten aktualisieren:**
    ```bash
